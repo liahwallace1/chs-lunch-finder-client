@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
   Link
 } from 'react-router-dom';
 import logo from './logo.svg';
@@ -37,10 +38,12 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/filters" component={Filters}/>
-        <Route exact path="/restaurants" component={Restaurants}/>
-        <Route component={NotFound} />
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/filters" component={Filters}/>
+          <Route exact path="/restaurants" component={Restaurants}/>
+          <Route component={NotFound} />
+        </Switch>
           <div className="App-header">
 
             <h2>What's' for Lunch Charleston</h2>
