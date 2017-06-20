@@ -13,28 +13,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/restaurants")
+    fetch("/api/restaurants.json")
     .then(res => res.json())
-    .then(restaurants => {
-      console.log(restaurants)
-    })
+    .then(restaurantData => this.setState({
+      fetchingData: false,
+       restaurantData }))
   }
 
   render() {
-    const { fetchingData } = this.state
-
+    const { fetchingData, restaurantData } = this.state
+    console.log(fetchingData)
+    console.log(restaurantData)
     return (
       <div className="App">
         <div className="App-header">
 
           <h2>What's' for Lunch Charleston</h2>
         </div>
-        <p className="App-intro">
+        <div className="App-intro">
           {fetchingData ?
             <img src={logo} className="App-logo" alt="logo" />
             :
             <h1>Have data</h1>}
-        </p>
+        </div>
       </div>
     );
   }
