@@ -7,8 +7,9 @@ import {
 } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
 
-const Home = () => <div>Home</div>
+
 const Filters = () => <div>Filters</div>
 const Restaurants = () => <div>Restaurants</div>
 const NotFound = () => <div>Not Found</div>
@@ -38,21 +39,22 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/filters" component={Filters}/>
-          <Route exact path="/restaurants" component={Restaurants}/>
-          <Route component={NotFound} />
-        </Switch>
           <div className="App-header">
 
             <h2>What's' for Lunch Charleston</h2>
           </div>
           <div className="App-intro">
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/filters" component={Filters}/>
+              <Route exact path="/restaurants" component={Restaurants}/>
+              <Route component={NotFound} />
+            </Switch>
+            
             {fetchingData ?
               <img src={logo} className="App-logo" alt="logo" />
               :
-              <h1>Have data</h1>}
+              <Home />}
           </div>
         </div>
       </Router>
