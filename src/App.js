@@ -12,6 +12,14 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch("http://localhost:3001/api/restaurants")
+    .then(res => res.json())
+    .then(restaurants => {
+      console.log(restaurants)
+    })
+  }
+
   render() {
     const { fetchingData } = this.state
 
