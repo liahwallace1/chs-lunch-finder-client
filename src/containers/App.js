@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,7 +8,7 @@ import {
 import logo from '../logo.svg';
 import './App.css';
 import Home from '../components/Home';
-import Restaurants from './Restaurants';
+import { ConnectedRestaurants } from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
 
@@ -47,7 +48,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/recommendation" component={Recommendation}/>
-                <Route exact path="/restaurants" component={Restaurants}/>
+                <Route exact path="/restaurants" component={ConnectedRestaurants}/>
                 <Route component={NotFound} />
               </Switch>}
           </div>
