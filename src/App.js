@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 
 
-const Filters = () => <div>Filters</div>
+const Recommendation = () => <div>Recommendation</div>
 const Restaurants = () => <div>Restaurants</div>
 const NotFound = () => <div>Not Found</div>
 
@@ -44,17 +43,15 @@ class App extends Component {
             <h2>What's' for Lunch Charleston</h2>
           </div>
           <div className="App-intro">
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/filters" component={Filters}/>
-              <Route exact path="/restaurants" component={Restaurants}/>
-              <Route component={NotFound} />
-            </Switch>
-            
             {fetchingData ?
               <img src={logo} className="App-logo" alt="logo" />
               :
-              <Home />}
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/recommendation" component={Recommendation}/>
+                <Route exact path="/restaurants" component={Restaurants}/>
+                <Route component={NotFound} />
+              </Switch>}
           </div>
         </div>
       </Router>
