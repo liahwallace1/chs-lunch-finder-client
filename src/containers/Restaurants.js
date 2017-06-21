@@ -5,16 +5,14 @@ import Restaurant from '../components/Restaurant'
 export class Restaurants extends Component {
 
   render() {
-    // const restaurants = this.props.restaurantData.map((restaurant) => {
-    //   return <Restaurant key={restaurant.id} restaurant={restaurant} />
-    // })
-    // console.log(restaurantData)
+    const restaurants = this.props.restaurantData.map((restaurant, index) => {
+      return <div key={restaurant.id}><Restaurant restaurant={restaurant} /></div>
+    })
     return (
       <div>
         <h3>Restaurants in Charleston, SC</h3>
         <h4>Filters GO HERE</h4>
-        <ul>
-        </ul>
+          {restaurants}
       </div>
     )
   }
@@ -22,7 +20,7 @@ export class Restaurants extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    restaurantData: state.restaurantData
+    restaurantData: state.restaurantDataReducer
   }
 }
 
