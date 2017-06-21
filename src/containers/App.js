@@ -4,16 +4,12 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-import Home from './components/Home';
-import Restaurants from './components/Restaurants';
-import Recommendation from './components/Recommendation';
-import NotFound from './components/NotFound';
-
-
-
-
+import Home from '../components/Home';
+import Restaurants from '../components/Restaurants';
+import Recommendation from '../components/Recommendation';
+import NotFound from '../components/NotFound';
 
 class App extends Component {
   constructor() {
