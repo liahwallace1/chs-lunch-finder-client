@@ -12,7 +12,7 @@ export const fetchRestaurantData = () => {
     fetch("/api/restaurants.json")
     .then(res => res.json())
     .then(restaurantData =>
-      receiveRestaurantData(restaurantData)
+      receiveRestaurantData(restaurantData),
       stopFetchingData()
     )
   }

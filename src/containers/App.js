@@ -17,16 +17,16 @@ import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
 
-  componentDidMount() {
-    fetch("/api/restaurants.json")
-    .then(res => res.json())
-    .then(restaurantData =>
-      restaurantData.map((restaurant) => {
-        this.props.addRestaurant(restaurant)
-      }),
-      this.props.stopFetchingData
-    )
-  }
+  // componentDidMount() {
+  //   fetch("/api/restaurants.json")
+  //   .then(res => res.json())
+  //   .then(restaurantData =>
+  //     restaurantData.map((restaurant) => {
+  //       this.props.addRestaurant(restaurant)
+  //     }),
+  //     this.props.stopFetchingData
+  //   )
+  // }
 
   render() {
     const { fetchingData, restaurantData } = this.props
@@ -57,7 +57,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ addRestaurant: addRestaurant }, dispatch)
+  return bindActionCreators({ fetchRestaurantData: fetchRestaurantData }, dispatch)
 }
 
 export default connect(
@@ -66,5 +66,5 @@ export default connect(
     restaurantData: state.restaurantData
   }), {
     stopFetchingData,
-    receiveRestaurantData
+    fetchRestaurantData
   })(App);
