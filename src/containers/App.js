@@ -8,25 +8,22 @@ import {
 } from 'react-router-dom';
 import logo from '../logo.svg';
 import './App.css';
+
+// Routes
 import Home from '../components/Home';
 import { ConnectedRestaurants } from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
+
+//Actions
 import { fetchRestaurantData } from '../actions/restaurantDataActions'
 import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   fetch("/api/restaurants.json")
-  //   .then(res => res.json())
-  //   .then(restaurantData =>
-  //     restaurantData.map((restaurant) => {
-  //       this.props.addRestaurant(restaurant)
-  //     }),
-  //     this.props.stopFetchingData
-  //   )
-  // }
+  componentDidMount() {
+    this.props.fetchRestaurantData()
+  }
 
   render() {
     const { fetchingData, restaurantData } = this.props
@@ -56,14 +53,14 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ fetchRestaurantData: fetchRestaurantData }, dispatch)
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({ fetchRestaurantData: fetchRestaurantData }, dispatch)
+// }
 
 export default connect(
-  state=> ({
-    fetchingData: state.fetchingData,
-    restaurantData: state.restaurantData
+  state => ({
+    fetchingData: state.fetchingDataReducer,
+    restaurantData: state.restaurantDataReducer
   }), {
     stopFetchingData,
     fetchRestaurantData

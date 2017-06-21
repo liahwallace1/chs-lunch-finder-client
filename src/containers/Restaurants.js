@@ -8,13 +8,12 @@ export class Restaurants extends Component {
     // const restaurants = this.props.restaurantData.map((restaurant) => {
     //   return <Restaurant key={restaurant.id} restaurant={restaurant} />
     // })
-    console.log(restaurantData)
+    // console.log(restaurantData)
     return (
       <div>
         <h3>Restaurants in Charleston, SC</h3>
         <h4>Filters GO HERE</h4>
         <ul>
-          // {restaurants}
         </ul>
       </div>
     )
