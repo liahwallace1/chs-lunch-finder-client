@@ -7,9 +7,8 @@ import thunk from 'redux-thunk';
 import manageRestaurants from '../reducers/manageRestaurants'
 
 const reducers = combineReducers({
-  fetchingData,
-  manageRestaurants,
-  route
+  fetchingDataReducer,
+  restaurantDataReducer,
 })
 const middleware = [thunk]
 

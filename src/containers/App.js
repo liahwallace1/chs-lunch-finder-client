@@ -12,15 +12,15 @@ import Home from '../components/Home';
 import { ConnectedRestaurants } from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
-import { addRestaurant } from '../actions/restaurants'
+import { addRestaurant } from '../actions/restaurantDataActions'
+import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      fetchingData: true,
-      restaurants: []
+      restaurantData: []
     }
   }
 
@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   render() {
-    const { fetchingData, restaurantData } = this.state
+    const { fetchingData, restaurantData } = this.props
     console.log(fetchingData)
     console.log(restaurantData)
     return (
@@ -67,4 +67,11 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ addRestaurant: addRestaurant }, dispatch)
 }
 
-export default App;
+export default connect(
+  state=> ({
+    fetchingData: state.fetchingData,
+    restaurantData: state.restaurantData
+  }), {
+    stopFetchingData,
+    addRestaurant
+  })(App);
