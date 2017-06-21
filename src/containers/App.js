@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +12,7 @@ import Home from '../components/Home';
 import { ConnectedRestaurants } from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
+import { addRestaurant } from '../actions/restaurants'
 
 class App extends Component {
   constructor() {
@@ -18,16 +20,19 @@ class App extends Component {
 
     this.state = {
       fetchingData: true,
-      restaurantData: []
+      restaurants: []
     }
   }
 
   componentDidMount() {
     fetch("/api/restaurants.json")
     .then(res => res.json())
-    .then(restaurantData => this.setState({
-      fetchingData: false,
-       restaurantData }))
+    .then(restaurantData =>
+      restaurantData.map((restaurant) => {
+        this.props.addRestaurant(restaurant)
+      })
+      .then(()=> this.setState({ fetchingData: false }))
+    )
   }
 
   render() {
@@ -56,6 +61,10 @@ class App extends Component {
       </Router>
     );
   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ addRestaurant: addRestaurant }, dispatch)
 }
 
 export default App;

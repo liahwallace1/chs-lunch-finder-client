@@ -4,10 +4,12 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
-import manageRestaurants from '../../reducers/manageRestaurants'
+import manageRestaurants from '../reducers/manageRestaurants'
 
 const reducers = combineReducers({
-  manageRestaurants
+  fetchingData,
+  manageRestaurants,
+  route
 })
 const middleware = [thunk]
 
