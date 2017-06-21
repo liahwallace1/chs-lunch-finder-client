@@ -4,9 +4,10 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
+import manageRestaurants from '../../reducers/manageRestaurants'
 
 const reducers = combineReducers({
-
+  manageRestaurants
 })
 const middleware = [thunk]
 

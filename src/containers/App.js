@@ -7,7 +7,7 @@ import {
 import logo from '../logo.svg';
 import './App.css';
 import Home from '../components/Home';
-import Restaurants from '../components/Restaurants';
+import Restaurants from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
 
