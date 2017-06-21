@@ -7,10 +7,11 @@ import {
 import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
+import Restaurants from './components/Restaurants';
+
 
 
 const Recommendation = () => <div>Recommendation</div>
-const Restaurants = () => <div>Restaurants</div>
 const NotFound = () => <div>Not Found</div>
 
 class App extends Component {
