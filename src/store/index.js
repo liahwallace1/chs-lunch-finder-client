@@ -4,7 +4,8 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
-import manageRestaurants from '../reducers/manageRestaurants'
+import restaurantDataReducer from '../reducers/restaurantDataReducer'
+import fetchingDataReducer from '../reducers/fetchingDataReducer'
 
 const reducers = combineReducers({
   fetchingDataReducer,

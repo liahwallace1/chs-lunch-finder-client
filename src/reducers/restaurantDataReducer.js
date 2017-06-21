@@ -1,10 +1,8 @@
-function manageRestaurants(state = {restaurants: []}, action){
+export default (state = {restaurantData: []}, action){
   switch (action.type) {
-    case 'ADD_RESTAURANT':
-      return Object.assign({}, state, {restaurants: [...state.restaurants, action.restaurant]});
+    case 'RECEIVE_RESTAURANT_DATA':
+      return action.restaurantData;
     default:
       return state
   }
 }
-
-export default manageRestaurants

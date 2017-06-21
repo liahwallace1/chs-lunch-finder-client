@@ -12,17 +12,10 @@ import Home from '../components/Home';
 import { ConnectedRestaurants } from './Restaurants';
 import Recommendation from '../components/Recommendation';
 import NotFound from '../components/NotFound';
-import { addRestaurant } from '../actions/restaurantDataActions'
+import { fetchRestaurantData } from '../actions/restaurantDataActions'
 import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      restaurantData: []
-    }
-  }
 
   componentDidMount() {
     fetch("/api/restaurants.json")
@@ -30,8 +23,8 @@ class App extends Component {
     .then(restaurantData =>
       restaurantData.map((restaurant) => {
         this.props.addRestaurant(restaurant)
-      })
-      .then(()=> this.setState({ fetchingData: false }))
+      }),
+      this.props.stopFetchingData
     )
   }
 
@@ -73,5 +66,5 @@ export default connect(
     restaurantData: state.restaurantData
   }), {
     stopFetchingData,
-    addRestaurant
+    receiveRestaurantData
   })(App);

@@ -1,6 +1,19 @@
-export const addRestaurant = (restaurant) => {
+import { stopFetchingData } from './fetchingDataActions'
+
+const receiveRestaurantData = (restaurantData) => {
   return {
-    type: 'ADD_RESTAURANT',
-    restaurant
+    type: 'RECEIVE_RESTAURANT_DATA',
+    restaurantData
   };
+}
+
+export const fetchRestaurantData = () => {
+  return dispatch => {
+    fetch("/api/restaurants.json")
+    .then(res => res.json())
+    .then(restaurantData =>
+      receiveRestaurantData(restaurantData)
+      stopFetchingData()
+    )
+  }
 }
