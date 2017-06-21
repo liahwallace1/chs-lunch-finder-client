@@ -15,7 +15,8 @@ const Restaurant = (restaurant) => {
           <h3>{restaurant.restaurant.name}</h3>
           <p>{restaurant.restaurant.price}     -     Rating: {restaurant.restaurant.yelp_rating}</p>
           <p>Type: {categories.join(", ")}</p>
-          <p>{restaurant.restaurant.address}, {restaurant.restaurant.city}, {restaurant.restaurant.state} {restaurant.restaurant.zip_code}</p>
+          <p>Takout? {restaurant.restaurant.takeout ? "Yes" : "Nope"} -  Delivery? {restaurant.restaurant.delivery ? "Yes" : "Nope"}</p>
+          <p>{restaurant.restaurant.address}, {restaurant.restaurant.city}, {restaurant.restaurant.state} {restaurant.restaurant.zip_code} - {restaurant.restaurant.display_phone}</p>
       </Segment>
     </div>
   )
