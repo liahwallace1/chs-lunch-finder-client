@@ -8,11 +8,12 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 import Restaurants from './components/Restaurants';
+import Recommendation from './components/Recommendation';
+import NotFound from './components/NotFound';
 
 
 
-const Recommendation = () => <div>Recommendation</div>
-const NotFound = () => <div>Not Found</div>
+
 
 class App extends Component {
   constructor() {
