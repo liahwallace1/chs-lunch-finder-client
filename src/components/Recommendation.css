@@ -1,0 +1,7 @@
+.restaurant-type img {
+  height: 50px;
+}
+
+.restaurant-type div {
+  display: inline-block;
+}
