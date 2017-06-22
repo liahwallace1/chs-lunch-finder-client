@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Icon } from 'semantic-ui-react'
+import { Grid, Icon } from 'semantic-ui-react'
 import './Recommendation.css'
 
 
@@ -18,29 +18,31 @@ export class Recommendation extends Component {
       <div>
         <h1>{intro}<a href={rec_restaurant.yelp_url} className="recommended-restaurant">{rec_restaurant.name}</a>!</h1>
       </div>
+      <br />
+      <Grid className="restaurant-info" columns={2} divided>
+        <Grid.Row>
+          <Grid.Column className="restaurant-type">
+            <div><Icon circular inverted color='teal' name='food' /></div>
+            <div><p>{rec_restaurant.category_list}</p></div>
+          </Grid.Column>
 
-      <div className="restaurant-info">
+          <Grid.Column className="restaurant-price">
+            <p>{rec_restaurant.price}</p>
+          </Grid.Column>
+        </Grid.Row>
 
-        <div className="restaurant-type">
-          <div><Icon circular inverted color='teal' name='food' /></div>
-          <div><p>{rec_restaurant.category_list}</p></div>
-        </div>
+        <Grid.Row>
+          <Grid.Column className="restaurant-takeout">
+            <div>{rec_restaurant.takeout ? <Icon circular inverted color='teal' name='thumbs up' /> : <Icon circular inverted color='orange' name='thumbs down' />}</div>
+            <div><p>Takeout</p></div>
+          </Grid.Column>
 
-        <div className="restaurant-price">
-          <p>{rec_restaurant.price}</p>
-        </div>
-
-        <div className="restaurant-takeout">
-          <div>{rec_restaurant.takeout ? <Icon circular inverted color='teal' name='thumbs up' /> : <Icon circular inverted color='orange' name='thumbs down' />}</div>
-          <div><p>Takeout</p></div>
-        </div>
-
-        <div className="restaurant-delivery">
-          <div>{rec_restaurant.delivery ? <Icon circular inverted color='teal' name='thumbs up' /> : <Icon circular inverted color='orange' name='thumbs down' />}</div>
-          <div><p>Delivery</p></div>
-        </div>
-
-      </div>
+          <Grid.Column className="restaurant-delivery">
+            <div>{rec_restaurant.delivery ? <Icon circular inverted color='teal' name='thumbs up' /> : <Icon circular inverted color='orange' name='thumbs down' />}</div>
+            <div><p>Delivery</p></div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </div>
     )
   }
