@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Restaurant from '../components/Restaurant';
 import Filter from '../components/Filter';
 
-import { toggleFilter } from '../actions/filterActions';
+// import { toggleFilter } from '../actions/filterActions';
 
 export class Restaurants extends Component {
   render() {
