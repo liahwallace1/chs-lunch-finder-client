@@ -4,12 +4,14 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
-import restaurantDataReducer from '../reducers/restaurantDataReducer'
-import fetchingDataReducer from '../reducers/fetchingDataReducer'
+import restaurantDataReducer from '../reducers/restaurantDataReducer';
+import fetchingDataReducer from '../reducers/fetchingDataReducer';
+import filterReducer from '../reducers/filterReducer';
 
 const reducers = combineReducers({
   fetchingDataReducer,
   restaurantDataReducer,
+  filterReducer,
 })
 const middleware = [thunk]
 
