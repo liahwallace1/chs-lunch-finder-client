@@ -22,7 +22,7 @@ export class Recommendation extends Component {
       <div className="restaurant-info">
 
         <div className="restaurant-type">
-          <div><Icon circular inverted color='teal' name='spoon' /></div>
+          <div><Icon circular inverted color='teal' name='food' /></div>
           <div><p>{rec_restaurant.category_list}</p></div>
         </div>
 

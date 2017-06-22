@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
+import { Item } from 'semantic-ui-react';
 import Restaurant from '../components/Restaurant';
 import Filter from '../components/Filter';
 
@@ -15,7 +16,9 @@ export class Restaurants extends Component {
       <div>
         <h3>Restaurants in Charleston, SC</h3>
         <Filter  />
+        <Item.Group divided unstackable>
           {restaurants}
+        </Item.Group>
       </div>
     )
   }
