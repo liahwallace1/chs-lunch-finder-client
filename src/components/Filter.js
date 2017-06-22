@@ -1,10 +1,12 @@
 import React from 'react';
+import './Filter.css'
 // import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css';
 
 const Filter = () => {
   return (
     <div>
+      <h4 className="filter-title">Filter Restaurants</h4>
       <div className="filter">
         <h4>Price</h4>
         <input type="checkbox" value="$" />$<br />
