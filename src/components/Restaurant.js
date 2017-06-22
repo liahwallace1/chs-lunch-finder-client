@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, Segment, Item, Label, Icon } from 'semantic-ui-react';
+import { Segment, Item, Label, Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import './Restaurant.css'
 
 const Restaurant = (restaurant) => {
  // const categories = []
@@ -9,9 +10,9 @@ const Restaurant = (restaurant) => {
  // })
 
   return (
-    <Segment key={restaurant.restaurant.id} className="restaurant">
+    <Segment key={restaurant.restaurant.id} className="restaurant" clearing>
       <Item>
-        <a href={restaurant.restaurant.yelp_url}><Item.Image src={restaurant.restaurant.image_url} size='small' floated='left' /></a>
+        <Item.Image src={restaurant.restaurant.image_url} size='small' floated="left"	/>
 
         <Item.Content>
           <Item.Header as='a'>{restaurant.restaurant.name}</Item.Header>
