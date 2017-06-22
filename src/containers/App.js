@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +12,7 @@ import './App.css';
 // Routes
 import Home from '../components/Home';
 import { ConnectedRestaurants } from './Restaurants';
-import Recommendation from '../components/Recommendation';
+import { ConnectedRecommendation } from '../components/Recommendation';
 import NotFound from '../components/NotFound';
 
 //Actions
@@ -42,7 +42,7 @@ class App extends Component {
               :
               <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/recommendation" component={Recommendation}/>
+                <Route exact path="/recommendation" component={ConnectedRecommendation}/>
                 <Route exact path="/restaurants" component={ConnectedRestaurants}/>
                 <Route component={NotFound} />
               </Switch>}
