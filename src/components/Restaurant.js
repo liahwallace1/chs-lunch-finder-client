@@ -5,13 +5,13 @@ import 'semantic-ui-css/semantic.min.css';
 const Restaurant = (restaurant) => {
  const categories = []
  restaurant.restaurant.categories.map((category) => {
-   categories.push(category.title)
+   return categories.push(category.title)
  })
 
   return (
     <div key={restaurant.restaurant.id} className="restaurant">
       <Segment className="restaurant-main">
-          <a href={restaurant.restaurant.yelp_url}><Image src={restaurant.restaurant.image_url} size='small' floated='left' height='50px' /></a>
+          <a href={restaurant.restaurant.yelp_url}><Image src={restaurant.restaurant.image_url} size='small' floated='left' /></a>
           <h3>{restaurant.restaurant.name}</h3>
           <p>{restaurant.restaurant.price}     -     Rating: {restaurant.restaurant.yelp_rating}</p>
           <p>Type: {categories.join(", ")}</p>
