@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import Restaurant from '../components/Restaurant';
 import Filter from '../components/Filter';
 
@@ -24,12 +24,12 @@ export class Restaurants extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurantData: state.restaurantDataReducer,
-    toggleFilter: state.filterReducer
+    // toggleFilter: state.filterReducer
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ toggleFilter: toggleFilter }, dispatch)
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({ toggleFilter: toggleFilter }, dispatch)
+// }
 
-export const ConnectedRestaurants = connect(mapStateToProps, mapDispatchToProps)(Restaurants)
+export const ConnectedRestaurants = connect(mapStateToProps)(Restaurants)
