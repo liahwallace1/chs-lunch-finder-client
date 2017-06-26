@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { Item } from 'semantic-ui-react';
-import Restaurant from '../components/RestaurantList';
-import Filter from '../components/Filter';
+import RestaurantList from '../components/RestaurantList';
+import { ConnectedFilter } from './Filter';
 
 // import { toggleFilter } from '../actions/filterActions';
 
@@ -22,20 +21,19 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
-const mapStateToProps = state => {
-  restaurants: getVisibleRestaurants(state.restaurantData, state.visibilityFilter)
-}
+// const mapStateToProps = state => {
+//   restaurants: getVisibleRestaurants(state.restaurantData, state.visibilityFilter)
+// }
 
 export class VisibleRestaurantList extends Component {
+
   render() {
-    const restaurants = this.props.restaurantData.map((restaurant, index) => {
-      return <div key={restaurant.id}><Restaurant restaurant={restaurant} /></div>
-    })
+
     return (
       <div>
         <h3>Restaurants in Charleston, SC</h3>
-        <Filter  />
-        <RestaurantList restaurants={this.props.restaurants}/>
+        <ConnectedFilter  />
+        <RestaurantList restaurants={this.props.restaurantData}/>
       </div>
     )
   }
