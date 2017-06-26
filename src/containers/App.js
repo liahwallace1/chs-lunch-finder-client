@@ -12,7 +12,7 @@ import Navbar from '../components/Navbar';
 
 // Routes
 import Home from '../components/Home';
-import { ConnectedRestaurants } from './Restaurants';
+import { VisibleRestaurantList } from './VisibleRestaurantList';
 import { ConnectedRecommendation } from '../components/Recommendation';
 import NotFound from '../components/NotFound';
 
@@ -35,7 +35,7 @@ class App extends Component {
         <div className="App">
           <div className="App-header">
 
-            <h2>What's' for Lunch Charleston</h2>
+            <h2>What's for Lunch Charleston</h2>
           </div>
           <Navbar />
           <div className="App-intro">
@@ -45,7 +45,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/recommendation" component={ConnectedRecommendation}/>
-                <Route exact path="/restaurants" component={ConnectedRestaurants}/>
+                <Route exact path="/restaurants" component={ConnectedVisibleRestaurantList}/>
                 <Route component={NotFound} />
               </Switch>}
           </div>
