@@ -6,7 +6,7 @@ let initialState = {
   deliveryFilter: null,
 }
 
-const visibilityFilterReducer = (state = initialState, action) => {
+const visibilityFilter = (state = initialState, action) => {
   switch (action.type) {
     // case 'TOGGLE_FILTER':
     //   return {visible: state.visible.toggle}
@@ -24,4 +24,4 @@ const visibilityFilterReducer = (state = initialState, action) => {
   }
 }
 
-export default visibilityFilterReducer
+export default visibilityFilter

@@ -1,4 +1,4 @@
- const fetchingDataReducer =(state = true, action) => {
+ const fetchingData = (state = true, action) => {
   switch (action.type) {
     case 'STOP_FETCHING_DATA':
       return false
@@ -9,4 +9,4 @@
   }
 }
 
-export default fetchingDataReducer
+export default fetchingData
