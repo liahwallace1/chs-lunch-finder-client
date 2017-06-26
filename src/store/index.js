@@ -6,7 +6,7 @@ import {
 import thunk from 'redux-thunk';
 import restaurantData from '../reducers/restaurantDataReducer';
 import fetchingData from '../reducers/fetchingDataReducer';
-import visibilityFilte from '../reducers/visibilityFilterReducer';
+import visibilityFilter from '../reducers/visibilityFilterReducer';
 
 const reducers = combineReducers({
   fetchingData,
