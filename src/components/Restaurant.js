@@ -4,10 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import './Restaurant.css'
 
 const Restaurant = (restaurant) => {
- // const categories = []
- // restaurant.restaurant.categories.map((category) => {
- //   return categories.push(category.title)
- // })
 
   return (
     <Segment key={restaurant.restaurant.id} className="restaurant" clearing>
