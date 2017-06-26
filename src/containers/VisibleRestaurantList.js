@@ -43,7 +43,7 @@ export class VisibleRestaurantList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    restaurantData: state.restaurantDataReducer,
+    restaurantData: state.restaurantData,
     // toggleFilter: state.filterReducer
   }
 }

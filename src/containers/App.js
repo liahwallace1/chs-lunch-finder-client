@@ -12,7 +12,7 @@ import Navbar from '../components/Navbar';
 
 // Routes
 import Home from '../components/Home';
-import { VisibleRestaurantList } from './VisibleRestaurantList';
+import { ConnectedVisibleRestaurantList } from './VisibleRestaurantList';
 import { ConnectedRecommendation } from '../components/Recommendation';
 import NotFound from '../components/NotFound';
 
