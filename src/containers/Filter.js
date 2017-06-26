@@ -13,16 +13,16 @@ class Filter extends Component {
     if (e.target.checked) {
       this.props.dispatch(addPriceFilter(priceType));
     } else {
-      this.props.removePriceFilter(priceType);
+      this.props.dispatch(removePriceFilter(priceType));
     }
   }
 
   handleLocationFilter(e) {
     let zip_code = e.target.value;
     if (e.target.checked) {
-      this.props.addLocationFilter(zip_code);
+      this.props.dispatch(addLocationFilter(zip_code));
     } else {
-      this.props.removeLocationFilter(zip_code);
+      this.props.dispatch(removeLocationFilter(zip_code));
     }
   }
 
