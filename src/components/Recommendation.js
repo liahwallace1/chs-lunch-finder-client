@@ -51,7 +51,7 @@ export class Recommendation extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    restaurantData: state.restaurantDataReducer,
+    restaurantData: state.restaurantData,
   }
 }
 
