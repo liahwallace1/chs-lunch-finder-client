@@ -6,7 +6,7 @@ import './Recommendation.css'
 
 export class Recommendation extends Component {
   render() {
-  let funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "Microwave lines killing your day? Head over to "]
+  let funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "Microwave lines killing your day? Head over to ", "Indecisive much? You should go to "]
   let restaurants = this.props.restaurantData
   let rec_restaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
   let intro = funny_intros[Math.floor(Math.random()*funny_intros.length)];
@@ -27,6 +27,7 @@ export class Recommendation extends Component {
           </Grid.Column>
 
           <Grid.Column className="restaurant-price">
+            <div><Icon circular inverted color='olive' name='currency' /></div>
             <p>{rec_restaurant.price}</p>
           </Grid.Column>
         </Grid.Row>
