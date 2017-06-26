@@ -10,15 +10,15 @@ const Filter = () => {
       <h4 className="filter-title">Filter Restaurants</h4>
       <div className="filter">
         <h4>Price</h4>
-        <input type="checkbox" value="$" />$<br />
-        <input type="checkbox" value="$$" />$$<br />
-        <input type="checkbox" value="$$$" />$$$<br />
-        <input type="checkbox" value="$$$$" />$$$$<br />
+        <input checked type="checkbox" value="$" />$<br />
+        <input checked type="checkbox" value="$$" />$$<br />
+        <input checked type="checkbox" value="$$$" />$$$<br />
+        <input checked type="checkbox" value="$$$$" />$$$$<br />
       </div>
       <div className="filter">
         <h4>Location</h4>
-        <input type="checkbox" value="29401" />South of Calhoun<br />
-        <input type="checkbox" value="29403" />North of Calhoun<br />
+        <input checked type="checkbox" value="29401" />South of Calhoun<br />
+        <input checked type="checkbox" value="29403" />North of Calhoun<br />
       </div>
       <div className="filter">
         <h4>Features</h4>
