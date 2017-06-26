@@ -6,23 +6,24 @@ import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFil
 // import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css';
 
-export class Filter extends Component {
+class Filter extends Component {
 
   handlePriceFilter(e) {
-    if (!e.target.checked) {
-      this.props.addPriceFilter();
+    let priceType = e.target.value
+    if (e.target.checked) {
+      this.props.dispatch(addPriceFilter(priceType));
     } else {
-      this.props.removePriceFilter();
+      this.props.removePriceFilter(priceType);
     }
   }
 
   handleLocationFilter(e) {
-    console.log(e.target.value)
-    // if (!e.target.checked) {
-    //   this.props.addLocationFilter();
-    // } else {
-    //   this.props.removeLocationFilter();
-    // }
+    let zip_code = e.target.value;
+    if (e.target.checked) {
+      this.props.addLocationFilter(zip_code);
+    } else {
+      this.props.removeLocationFilter(zip_code);
+    }
   }
 
   render() {
@@ -53,21 +54,21 @@ export class Filter extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    restaurantData: state.restaurantData,
+    restaurantFilters: state.restaurantFilters,
     // toggleFilter: state.filterReducer
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    addPriceFilter: addPriceFilter },
-    {
-      removePriceFilter: removePriceFilter
-    }, {
-      addLocationFilter: addLocationFilter
-    }, {
-      removeLocationFilter: removeLocationFilter
-    }, dispatch)
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({
+//     addPriceFilter: addPriceFilter },
+//     {
+//       removePriceFilter: removePriceFilter
+//     }, {
+//       addLocationFilter: addLocationFilter
+//     }, {
+//       removeLocationFilter: removeLocationFilter
+//     }, dispatch)
+// }
 
-export const ConnectedFilter = connect(mapStateToProps, mapDispatchToProps)(Filter)
+export const ConnectedFilter = connect(mapStateToProps)(Filter)
