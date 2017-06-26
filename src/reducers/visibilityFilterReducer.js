@@ -1,9 +1,9 @@
 let initialState = {
   visible: true,
-  priceFilter: null,
-  locationFilter: null,
-  takeoutFilter: null,
-  deliveryFilter: null,
+  priceFilter: ['$', '$$', '$$$', '$$$$'],
+  locationFilter: ['29401', '29403'],
+  takeoutFilter: false,
+  deliveryFilter: false,
 }
 
 const visibilityFilter = (state = initialState, action) => {
