@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import logo from '../logo.svg';
 import './App.css';
+import Navbar from '../components/Navbar';
 
 // Routes
 import Home from '../components/Home';
@@ -36,7 +37,7 @@ class App extends Component {
 
             <h2>What's' for Lunch Charleston</h2>
           </div>
-          
+          <Navbar />
           <div className="App-intro">
             {fetchingData ?
               <img src={logo} className="App-logo" alt="logo" />

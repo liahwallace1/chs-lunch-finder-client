@@ -23,3 +23,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.navlink {
+  margin: 12px;
+  color: purple;
+  text-decoration: none;
+  border-right: 1px solid white;
+  padding: 6px;
+}
+
+.activeNavlink {
+  background: purple;
+  margin: 12px;
+  color: white;
+  text-decoration: none;
+  border-right: 1px solid white;
+  padding: 6px;
+}
