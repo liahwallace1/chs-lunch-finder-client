@@ -3,26 +3,26 @@
 //     type: 'TOGGLE_FILTER',
 //   };
 // }
-export const filterPrice = () => {
+export const addPriceFilter = (priceType) => {
   return {
-    type: 'FILTER_PRICE',
+    type: 'ADD_PRICE_FILTER', priceType
   }
 }
 
-export const filterLocation = () => {
+export const removePriceFilter = (priceType) => {
   return {
-    type: 'FILTER_LOCATION',
+    type: 'REMOVE_PRICE_FILTER', priceType
   }
 }
 
-export const filterTakeout = () => {
+export const addLocationFilter = (zip_code) => {
   return {
-    type: 'FILTER_TAKEOUT',
+    type: 'ADD_LOCATION_FILTER', zip_code
   }
 }
 
-export const filterDelivery = () => {
+export const removeLocationFilter = (zip_code) => {
   return {
-    type: 'FILTER_DELIVERY',
+    type: 'REMOVE_LOCATION_FILTER', zip_code
   }
 }

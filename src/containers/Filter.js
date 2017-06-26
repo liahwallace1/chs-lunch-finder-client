@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Filter.css'
+import './Filter.css';
+import { bindActionCreators } from 'redux';
+import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFilter } from '../actions/visibilityFilterActions';
 // import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css';
 
 export class Filter extends Component {
+
+  handlePriceFilter(e) {
+    if (!e.target.checked) {
+      this.props.addPriceFilter();
+    } else {
+      this.props.removePriceFilter();
+    }
+  }
+
+  handleLocationFilter(e) {
+    console.log(e.target.value)
+    // if (!e.target.checked) {
+    //   this.props.addLocationFilter();
+    // } else {
+    //   this.props.removeLocationFilter();
+    // }
+  }
 
   render() {
     return (
@@ -39,8 +58,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({ toggleFilter: toggleFilter }, dispatch)
-// }
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addPriceFilter: addPriceFilter },
+    {
+      removePriceFilter: removePriceFilter
+    }, {
+      addLocationFilter: addLocationFilter
+    }, {
+      removeLocationFilter: removeLocationFilter
+    }, dispatch)
+}
 
-export const ConnectedFilter = connect(mapStateToProps)(Filter)
+export const ConnectedFilter = connect(mapStateToProps, mapDispatchToProps)(Filter)
