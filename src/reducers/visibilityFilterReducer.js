@@ -10,15 +10,19 @@ const visibilityFilter = (state = initialState, action) => {
     case 'ADD_PRICE_FILTER':
       return Object.assign({}, state, { priceFilter: [...state.priceFilter, action.priceType], locationFilter: [...state.locationFilter]})
 
-    // case 'REMOVE_PRICE_FILTER':
-    //   debugger
-    //   let price_index = state.restaurantFilters[0].priceFilter.indexOf(action.priceType)
-    //   return state.restaurantFilters[0].priceFilter.splice(price_index, 1)
-    case 'ADD_LOCATION_FILTER':
+    case 'REMOVE_PRICE_FILTER':
+      let newPriceFilter = state.priceFilter.slice();
+      newPriceFilter.splice(action.priceFilter, 1)
+      return { priceFilter: newPriceFilter, locationFilter: [...state.locationFilter]})
+    
+      case 'ADD_LOCATION_FILTER':
       return Object.assign({}, state, { priceFilter: [...state.priceFilter], locationFilter: [...state.locationFilter, action.zip_code]})
-    //   case 'REMOVE_LOCATION_FILTER':
-    //   let location_index = state.restaurantFilters[1].locationFilter.indexOf(action.zip_code)
-    //   return state.restaurantFilters[1].locationFilter.splice(location_index, 1)
+          
+    case 'REMOVE_LOCATION_FILTER':
+      let newLocationFilter = state.locationFilter.slice();
+      newLocationFilter.splice(action.locationFilter, 1)
+      return { priceFilter: [...state.priceFilter], locationFilter: newLocationFilter})
+      
     default:
       return state
   }
