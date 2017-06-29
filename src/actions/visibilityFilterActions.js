@@ -26,3 +26,27 @@ export const removeLocationFilter = (zip_code) => {
     type: 'REMOVE_LOCATION_FILTER', zip_code
   }
 }
+
+export const addTakeoutFilter = () => {
+  return {
+    type: 'ADD_TAKEOUT_FILTER'
+  }
+}
+
+export const removeTakeoutFilter = () => {
+  return {
+    type: 'REMOVE_TAKEOUT_FILTER'
+  }
+}
+
+export const addDeliveryFilter = () => {
+  return {
+    type: 'ADD_DELIVERY_FILTER'
+  }
+}
+
+export const removeDeliveryFilter = () => {
+  return {
+    type: 'REMOVE_DELIVERY_FILTER'
+  }
+}
