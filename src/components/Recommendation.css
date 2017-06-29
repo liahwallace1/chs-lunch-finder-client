@@ -2,16 +2,40 @@
   height: 100%;
   margin: 15px;
   margin-top: 0px;
-  padding: 10px;
-  padding-top: 0px;
+  padding: 30px;
   background-color: white;
 }
 
-
-.restaurant-type img {
-  height: 50px;
+.recom-intro h1 {
+  font-size: 42px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.restaurant-type div {
-  display: inline-block;
+.recom-intro a {
+  font-size: 42px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #ca2edb;
+  animation: font-shift infinite 7s alternate;
+  -webkit-animation: font-shift infinite 7s alternate;
+
+}
+
+@-webkit-keyframes font-shift {
+  from {color: #ca2edb;}
+  to {font-color: #2edbca;}
+}
+
+@keyframes font-shift {
+  from {color: #ca2edb;}
+  to {color: #2edbca;}
+}
+
+.recom-buttons {
+  margin: 30px;
+}
+
+.recom-button {
+  padding: 30px;
 }
