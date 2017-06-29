@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Filter.css';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFilter } from '../actions/visibilityFilterActions';
 // import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css';
@@ -26,6 +26,22 @@ class Filter extends Component {
     }
   }
 
+  handleTakeoutFilter(e) {
+    if (e.target.checked) {
+      this.props.dispatch(addTakeoutFilter());
+    } else {
+      this.props.dispatch(removeTakeoutFilter());
+    }
+  }
+
+  handleDeliveryFilter(e) {
+    if (e.target.checked) {
+      this.props.dispatch(addDeliveryFilter());
+    } else {
+      this.props.dispatch(removeDeliveryFilter());
+    }
+  }
+
   render() {
     return (
       <div>
@@ -44,8 +60,8 @@ class Filter extends Component {
         </div>
         <div className="filter">
           <h4>Features</h4>
-          <input type="checkbox" value="takeout" />Takeout?<br />
-          <input type="checkbox" value="delivery" />Delivery?<br />
+          <input type="checkbox" value="takeout" onClick={(e) => this.handleTakeoutFilter(e)} />Takeout?<br />
+          <input type="checkbox" value="delivery" onClick={(e) => this.handleDeliveryFilter(e)} />Delivery?<br />
         </div>
       </div>
     )
