@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -8,10 +9,31 @@
 }
 
 .App-header {
+  position: relative;
   background-color: #222;
   height: 150px;
-  padding: 20px;
+  padding-top: 50px;
+  padding: 30px;
   color: white;
+  background-color: #2edbca;
+  animation: color-shift infinite 7s alternate;
+  -webkit-animation: color-shift infinite 7s alternate;
+  /*background-color: blue;
+  background-image: -webkit-linear-gradient(-225deg, red, blue);
+  background-image: linear-gradient(-225deg, red, blue);
+  webkit-animation: gradient 10s infinite alternate;
+  moz-animation: gradient 10s infinite alternate;
+  animation: gradient 10s infinite alternate;*/
+}
+
+@-webkit-keyframes color-shift {
+  from {background-color: #2edbca;}
+  to {background-color: #ca2edb;}
+}
+
+@keyframes color-shift {
+  from {background-color: #2edbca;}
+  to {background-color: #ca2edb;}
 }
 
 .App-intro {
@@ -24,18 +46,30 @@
   to { transform: rotate(360deg); }
 }
 
+.title {
+  padding-top: 15px;
+  font-size: 40px;
+}
+
+.navbar {
+  position: absolute;
+  bottom: 6px;
+}
+
 .navlink {
-  margin: 12px;
-  color: purple;
+  color: white;
+  font-size: 16px;
   text-decoration: none;
-  border-right: 1px solid white;
   padding: 6px;
 }
 
+.navlink:hover {
+    color: #2edbca
+}
+
 .activeNavlink {
-  background: purple;
-  margin: 12px;
-  color: white;
+  background: white;
+  color: #ca2edb;
   text-decoration: none;
   border-right: 1px solid white;
   padding: 6px;
