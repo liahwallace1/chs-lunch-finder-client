@@ -1,12 +1,12 @@
 import React from 'react';
-import { Segment, Item, Label, Icon } from 'semantic-ui-react';
+import { Item, Label, Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './Restaurant.css'
 
 const Restaurant = ({ restaurant }) => {
 
   return (
-    <Item key={restaurant.id} className="restaurant" clearing>
+    <Item key={restaurant.id} className="restaurant">
       <Item.Image src={restaurant.image_url} size='small'	/>
 
       <Item.Content verticalAlign='middle'>

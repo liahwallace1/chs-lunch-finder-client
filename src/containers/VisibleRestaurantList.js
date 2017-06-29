@@ -13,58 +13,58 @@ const getVisibleRestaurants = (restaurants, filter) => {
     return restaurants.filter((r) => r.takeout === true)
 // price, location, and takeout filter
   } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0 && filter.takeoutFilter === true) {
-    var filteredRestaurants = []
+    var filteredRestaurants1 = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1 && filter.locationFilter.indexOf(r.zip_code) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants1.push(r)
       }
     })
-    return filteredRestaurants.filter((r) => r.takeout === true)
+    return filteredRestaurants1.filter((r) => r.takeout === true)
 // price & location filters, no takeout
   } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0 && filter.takeoutFilter === false) {
-    var filteredRestaurants = []
+    var filteredRestaurants2 = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1 && filter.locationFilter.indexOf(r.zip_code) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants2.push(r)
       }
     })
-    return filteredRestaurants
+    return filteredRestaurants2
 // price & takeout filters
   } else if (filter.priceFilter.length !== 0 && filter.takeoutFilter === true) {
-    var filteredRestaurants = []
+    var filteredRestaurants3 = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants3.push(r)
       }
     })
-    return filteredRestaurants.filter((r) => r.takeout === true)
+    return filteredRestaurants3.filter((r) => r.takeout === true)
   // price filter only
 } else if (filter.priceFilter.length !== 0 && filter.takeoutFilter === false) {
-    var filteredRestaurants = []
+    var filteredRestaurants4 = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants4.push(r)
       }
     })
-    return filteredRestaurants
+    return filteredRestaurants4
   // location and takeout filter
   }else if (filter.locationFilter.length !== 0 && filter.takeoutFilter === true){
-    var filteredRestaurants = []
+    var filteredRestaurants5 = []
     restaurants.forEach(r => {
       if (filter.locationFilter.indexOf(r.zip_code) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants5.push(r)
       }
     })
-    return filteredRestaurants.filter((r) => r.takeout === true)
+    return filteredRestaurants5.filter((r) => r.takeout === true)
   // location filter only
   } else {
-    var filteredRestaurants = []
+    var filteredRestaurants6 = []
     restaurants.forEach(r => {
       if (filter.locationFilter.indexOf(r.zip_code) !== -1) {
-        filteredRestaurants.push(r)
+        filteredRestaurants6.push(r)
       }
     })
-    return filteredRestaurants
+    return filteredRestaurants6
   }
 }
 
