@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 import { Grid, Icon, Button } from 'semantic-ui-react'
 import './Recommendation.css'
 
-
 class Recommendation extends Component {
+
+  handleNewRecommendation() {
+    this.forceUpdate();
+  }
+
   render() {
     console.log(restaurants)
-    const funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "Microwave lines killing your day? Head over to ", "Indecisive much? You should go to "]
+    const funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "A line at the microwave killing your day? Head over to ", "Indecisive much? You should go to "]
     const restaurants = this.props.restaurantData
-    let rec_restaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
+    let rec_restaurant = restaurants[Math.floor(Math.random()*restaurants.length)]
     let intro = funny_intros[Math.floor(Math.random()*funny_intros.length)];
 
     return (
@@ -45,8 +49,8 @@ class Recommendation extends Component {
           </Grid.Row>
         </Grid>
         <div className="recom-buttons">
-          <Button className="recom-button" size="large" color="red"><Icon name='refresh' />New Suggestion</Button>
-          <Button className="recom-button" size="large" color="blue" padding="10px"><Icon name='map pin' />Where is it?</Button>
+          <Button className="recom-button" size="large" color="red" onClick={() => this.handleNewRecommendation()}><Icon name='refresh' />New Suggestion</Button>
+          <Button className="recom-button" size="large" color="blue"><Icon name='map pin' />Where is it?</Button>
         </div>
       </div>
     </div>
