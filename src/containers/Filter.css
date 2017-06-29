@@ -1,16 +1,30 @@
-div {
+.filter-container {
+  padding-top: 20px;
   background-color: #f9f9f9;
 }
 
 div.filter {
   display: inline-block;
-  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
   margin: 1px;
   text-align: left;
-  border-right: 1px solid purple;
-  height: 200px;
+  height: 150px;
   vertical-align: top;
 
+}
+
+.price-filter {
+  background-color: white;
+  padding: 6px;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.filter-title {
+  border: 1px solid #f9f9f9;
 }
 
 .filter-title {

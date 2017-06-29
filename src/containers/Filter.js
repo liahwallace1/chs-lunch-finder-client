@@ -37,8 +37,8 @@ class Filter extends Component {
 
   render() {
     return (
-      <div>
-        <h4 className="filter-title">Filter Restaurants</h4>
+      <div className="filter-container">
+        <h3>Filter Options</h3>
         <div className="filter">
           <h4>Price</h4>
           <input type="checkbox" value="$" onClick={(e) => this.handlePriceFilter(e)}/>$<br />
