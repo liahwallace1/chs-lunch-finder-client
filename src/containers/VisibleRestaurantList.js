@@ -75,7 +75,7 @@ export class VisibleRestaurantList extends Component {
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
 
     return (
-      <div>
+      <div className="rest-list-container">
         <ConnectedFilter  />
         <RestaurantList restaurants={restaurants}/>
       </div>

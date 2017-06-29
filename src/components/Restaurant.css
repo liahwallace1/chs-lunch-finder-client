@@ -5,3 +5,11 @@
    background-repeat: no-repeat;
    overflow: hidden;
 }
+
+.rest-list-container {
+  margin: 15px;
+  margin-top: 0px;
+  padding: 20px;
+  padding-top: 0px;
+  background-color: white;
+}
