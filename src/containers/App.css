@@ -10,7 +10,6 @@
 
 .App-header {
   position: relative;
-  background-color: #222;
   height: 150px;
   padding-top: 50px;
   padding: 30px;
@@ -18,12 +17,7 @@
   background-color: #2edbca;
   animation: color-shift infinite 7s alternate;
   -webkit-animation: color-shift infinite 7s alternate;
-  /*background-color: blue;
-  background-image: -webkit-linear-gradient(-225deg, red, blue);
-  background-image: linear-gradient(-225deg, red, blue);
-  webkit-animation: gradient 10s infinite alternate;
-  moz-animation: gradient 10s infinite alternate;
-  animation: gradient 10s infinite alternate;*/
+
 }
 
 @-webkit-keyframes color-shift {
@@ -36,8 +30,9 @@
   to {background-color: #ca2edb;}
 }
 
-.App-intro {
+.App-info {
   font-size: large;
+  height: 83vh;
 }
 
 @keyframes App-logo-spin {

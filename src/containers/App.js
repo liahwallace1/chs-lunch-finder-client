@@ -27,24 +27,22 @@ class App extends Component {
   }
 
   render() {
-    const { fetchingData, restaurantData } = this.props
-    console.log(fetchingData)
-    console.log(restaurantData)
+    const { fetchingData } = this.props
+
     return (
       <Router>
         <div className="App">
           <div className="App-header">
-
             <h2 className="title">What's for Lunch Charleston?</h2>
             <Navbar />
           </div>
 
-          <div className="App-intro">
+          <div className="App-info">
             {fetchingData ?
               <img src={logo} className="App-logo" alt="logo" />
               :
               <Switch>
-                <Route path="/recommendation" component={ConnectedRecommendation}/>
+                <Route path="/recommendation" component={ConnectedRecommendation} />
                 <Route exact path="/" component={ConnectedVisibleRestaurantList}/>
                 <Route component={NotFound} />
               </Switch>}
@@ -61,8 +59,8 @@ class App extends Component {
 
 export default connect(
   state => ({
-    fetchingData: state.fetchingDataReducer,
-    restaurantData: state.restaurantDataReducer
+    fetchingData: state.fetchingData,
+    restaurantData: state.restaurantData
   }), {
     stopFetchingData,
     fetchRestaurantData
