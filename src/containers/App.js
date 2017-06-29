@@ -35,9 +35,10 @@ class App extends Component {
         <div className="App">
           <div className="App-header">
 
-            <h2>What's' for Lunch Charleston</h2>
+            <h2 className="title">What's for Lunch Charleston?</h2>
+            <Navbar />
           </div>
-          <Navbar />
+
           <div className="App-intro">
             {fetchingData ?
               <img src={logo} className="App-logo" alt="logo" />
