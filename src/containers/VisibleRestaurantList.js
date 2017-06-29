@@ -68,25 +68,11 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
-const applyTakeoutFilter = (restaurants, filter) => {
-  if (filter.takeoutFilter === true) {
-    restaurants.filter((r) => r.takeout === true)
-  }
-}
-
-const applyDeliveryFilter = (restaurants, filter) => {
-  if (filter.deliveryFilter === true) {
-    restaurants.filter((r) => r.delivery === true)
-  }
-}
-
 
 export class VisibleRestaurantList extends Component {
   render() {
 
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
-    applyTakeoutFilter(restaurants, this.props.visibilityFilter)
-    applyDeliveryFilter(restaurants, this.props.visibilityFilter)
 
     return (
       <div>
