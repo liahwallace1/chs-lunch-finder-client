@@ -76,7 +76,6 @@ export class VisibleRestaurantList extends Component {
 
     return (
       <div>
-        <h3>Restaurants in Charleston, SC</h3>
         <ConnectedFilter  />
         <RestaurantList restaurants={restaurants}/>
       </div>

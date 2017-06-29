@@ -1,3 +1,7 @@
+div {
+  background-color: #f9f9f9;
+}
+
 div.filter {
   display: inline-block;
   padding: 30px;
@@ -6,6 +10,7 @@ div.filter {
   border-right: 1px solid purple;
   height: 200px;
   vertical-align: top;
+
 }
 
 .filter-title {
