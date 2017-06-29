@@ -4,20 +4,20 @@ import { Grid, Icon } from 'semantic-ui-react'
 import './Recommendation.css'
 
 
-export class Recommendation extends Component {
+class Recommendation extends Component {
   render() {
-  let funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "Microwave lines killing your day? Head over to ", "Indecisive much? You should go to "]
-  let restaurants = this.props.restaurantData
-  let rec_restaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
-  let intro = funny_intros[Math.floor(Math.random()*funny_intros.length)];
-
-  console.log(rec_restaurant)
+    console.log(restaurants)
+    const funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "Microwave lines killing your day? Head over to ", "Indecisive much? You should go to "]
+    const restaurants = this.props.restaurantData
+    let rec_restaurant = restaurants[Math.floor(Math.random()*restaurants.length)];
+    let intro = funny_intros[Math.floor(Math.random()*funny_intros.length)];
 
     return (
-    <div>
-      <div>
-        <h1>{intro}<a href={rec_restaurant.yelp_url} className="recommended-restaurant">{rec_restaurant.name}</a>!</h1>
-      </div>
+    <div className="recom-container">
+      <div className="recom-info">
+        <div className="recom-intro">
+          <h1>{intro}<a href={rec_restaurant.yelp_url} className="recommended-restaurant">{rec_restaurant.name}</a>!</h1>
+        </div>
       <br />
       <Grid className="restaurant-info" columns={2} divided>
         <Grid.Row>
@@ -44,6 +44,7 @@ export class Recommendation extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      </div>
     </div>
     )
   }
@@ -55,7 +56,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-
-// const Recommendation = () => {
 
 export const ConnectedRecommendation = connect(mapStateToProps)(Recommendation)
