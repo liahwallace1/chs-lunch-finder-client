@@ -5,7 +5,7 @@ import { ConnectedFilter } from './Filter';
 
 
 const getVisibleRestaurants = (restaurants, filter) => {
-  if (filter.priceFilter.length === 0 && filter.locationFilter.length === 0) {
+  if (filter.priceFilter.length === 0 && filter.locationFilter.length === 0 && filter.takeoutFilter === false && filter.deliveryFilter === false) {
     return restaurants
   } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0){
     var filteredRestaurants = []
@@ -34,11 +34,25 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
+const applyTakeoutFilter = (restaurants, filter) => {
+  if (filter.takeoutFilter === true) {
+    restaurants.filter((r) => r.takeout === true)
+  }
+}
+
+const applyDeliveryFilter = (restaurants, filter) => {
+  if (filter.deliveryFilter === true) {
+    restaurants.filter((r) => r.delivery === true)
+  }
+}
+
 
 export class VisibleRestaurantList extends Component {
   render() {
 
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
+    applyTakeoutFilter(restaurants, this.props.visibilityFilter)
+    applyDeliveryFilter(restaurants, this.props.visibilityFilter)
 
     return (
       <div>

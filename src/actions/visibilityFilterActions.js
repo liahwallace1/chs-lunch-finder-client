@@ -38,15 +38,3 @@ export const removeTakeoutFilter = () => {
     type: 'REMOVE_TAKEOUT_FILTER'
   }
 }
-
-export const addDeliveryFilter = () => {
-  return {
-    type: 'ADD_DELIVERY_FILTER'
-  }
-}
-
-export const removeDeliveryFilter = () => {
-  return {
-    type: 'REMOVE_DELIVERY_FILTER'
-  }
-}

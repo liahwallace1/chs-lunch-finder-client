@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Filter.css';
 // import { bindActionCreators } from 'redux';
-import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFilter } from '../actions/visibilityFilterActions';
+import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFilter, addTakeoutFilter, removeTakeoutFilter } from '../actions/visibilityFilterActions';
 // import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css';
 
@@ -34,13 +34,6 @@ class Filter extends Component {
     }
   }
 
-  handleDeliveryFilter(e) {
-    if (e.target.checked) {
-      this.props.dispatch(addDeliveryFilter());
-    } else {
-      this.props.dispatch(removeDeliveryFilter());
-    }
-  }
 
   render() {
     return (
@@ -61,7 +54,6 @@ class Filter extends Component {
         <div className="filter">
           <h4>Features</h4>
           <input type="checkbox" value="takeout" onClick={(e) => this.handleTakeoutFilter(e)} />Takeout?<br />
-          <input type="checkbox" value="delivery" onClick={(e) => this.handleDeliveryFilter(e)} />Delivery?<br />
         </div>
       </div>
     )
