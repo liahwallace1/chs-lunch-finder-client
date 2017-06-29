@@ -5,9 +5,23 @@ import { ConnectedFilter } from './Filter';
 
 
 const getVisibleRestaurants = (restaurants, filter) => {
-  if (filter.priceFilter.length === 0 && filter.locationFilter.length === 0 && filter.takeoutFilter === false && filter.deliveryFilter === false) {
+ // no filters
+  if (filter.priceFilter.length === 0 && filter.locationFilter.length === 0 && filter.takeoutFilter === false) {
     return restaurants
-  } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0){
+// only takeout filter
+  } else if (filter.priceFilter.length === 0 && filter.locationFilter.length === 0 && filter.takeoutFilter === true) {
+    return restaurants.filter((r) => r.takeout === true)
+// price, location, and takeout filter
+  } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0 && filter.takeoutFilter === true) {
+    var filteredRestaurants = []
+    restaurants.forEach(r => {
+      if (filter.priceFilter.indexOf(r.price) !== -1 && filter.locationFilter.indexOf(r.zip_code) !== -1) {
+        filteredRestaurants.push(r)
+      }
+    })
+    return filteredRestaurants.filter((r) => r.takeout === true)
+// price & location filters, no takeout
+  } else if (filter.priceFilter.length !== 0 && filter.locationFilter.length !== 0 && filter.takeoutFilter === false) {
     var filteredRestaurants = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1 && filter.locationFilter.indexOf(r.zip_code) !== -1) {
@@ -15,7 +29,17 @@ const getVisibleRestaurants = (restaurants, filter) => {
       }
     })
     return filteredRestaurants
-  } else if (filter.priceFilter.length !== 0) {
+// price & takeout filters
+  } else if (filter.priceFilter.length !== 0 && filter.takeoutFilter === true) {
+    var filteredRestaurants = []
+    restaurants.forEach(r => {
+      if (filter.priceFilter.indexOf(r.price) !== -1) {
+        filteredRestaurants.push(r)
+      }
+    })
+    return filteredRestaurants.filter((r) => r.takeout === true)
+  // price filter only
+} else if (filter.priceFilter.length !== 0 && filter.takeoutFilter === false) {
     var filteredRestaurants = []
     restaurants.forEach(r => {
       if (filter.priceFilter.indexOf(r.price) !== -1) {
@@ -23,6 +47,16 @@ const getVisibleRestaurants = (restaurants, filter) => {
       }
     })
     return filteredRestaurants
+  // location and takeout filter
+  }else if (filter.locationFilter.length !== 0 && filter.takeoutFilter === true){
+    var filteredRestaurants = []
+    restaurants.forEach(r => {
+      if (filter.locationFilter.indexOf(r.zip_code) !== -1) {
+        filteredRestaurants.push(r)
+      }
+    })
+    return filteredRestaurants.filter((r) => r.takeout === true)
+  // location filter only
   } else {
     var filteredRestaurants = []
     restaurants.forEach(r => {
