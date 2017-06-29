@@ -2,5 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #2edbca;
+  animation: color-shift infinite 7s alternate;
+  -webkit-animation: color-shift infinite 7s alternate;
 
+}
+
+@-webkit-keyframes color-shift {
+  from {background-color: #2edbca;}
+  to {background-color: #ca2edb;}
+}
+
+@keyframes color-shift {
+  from {background-color: #2edbca;}
+  to {background-color: #ca2edb;}
 }
