@@ -6,7 +6,7 @@ import './Restaurant.css'
 const Restaurant = ({ restaurant }) => {
 
   return (
-    <Item key={restaurant.id} className="restaurant">
+    <Item key={restaurant.id}>
       <Item.Image src={restaurant.image_url} size='small'	/>
 
       <Item.Content verticalAlign='middle'>

@@ -6,7 +6,7 @@ import Restaurant from '../components/Restaurant';
 const RestaurantList = ({ restaurants }) => {
 
   return (
-    <Item.Group divided unstackable>
+    <Item.Group divided unstackable className="restaurant-list">
       {restaurants.map(restaurant => (
         <Restaurant key={restaurant.id} restaurant={restaurant} />
       ))}
