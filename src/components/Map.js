@@ -1,44 +1,24 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import Map, {GoogleApiWrapper, Marker} from 'google-maps-react';
 import PropTypes from 'prop-types';
-import { Sidebar, Segment } from 'semantic-ui-react';
+
 
 
 class Map extends Component {
   _renderMarkers() {
-   if (!this.props.places) {
-     return;
-   }
-   return this.props.places.map(p => {
-     return <Marker
-               key={p.id}
-               name={p.id}
-               place={p}
-               label={p.name}
-               onClick={this.props.onMarkerClick.bind(this)}
+   let r = this.props.toggleMap.restaurant
+   let pos = {lat: r.latitude, lng: r.longitude}
+   return <Marker
+               key={r.id}
+               label={r.name}
                map={this.props.map}
-               position={p.geometry.location} />
+               position={pos} />
    });
  }
 
- _renderChildren() {
-   const {children} = this.props;
-
-   if (React.Children.count(children) > 0) {
-     return React.Children.map(children, c => {
-       return React.cloneElement(c, this.props, {
-         map: this.props.map,
-         google: this.props.google
-       })
-     })
-   } else {
-     return this._renderMarkers();
-   }
- }
-
  render() {
-   const {children} = this.props;
 
    return (
      <Map map={this.props.map}
@@ -47,13 +27,17 @@ class Map extends Component {
        zoom={this.props.zoom}
        onRecenter={this.props.onMove}
        onDragend={this.props.onMove}
-       onClick={this.props.onClick}
        visible={!children || React.Children.count(children) == 0}
        >
-       {this._renderChildren()}
      </Map>
    )
  }
 }
 
-export default Map
+const mapStateToProps = (state) => {
+  return {
+    toggleMap: state.toggleMap,
+  }
+}
+
+export const ConnectedMap = connect(mapStateToProps)(Map)
