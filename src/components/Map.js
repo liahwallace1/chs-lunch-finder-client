@@ -1,110 +1,59 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Map, {GoogleApiWrapper, Marker} from 'google-maps-react';
 import PropTypes from 'prop-types';
-import { Sidebar, Segment } from 'semantic-ui-react'
-
-export class Map extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const {lat, lng} = this.props.initialCenter;
-    this.state = {
-      visible: false
-      currentLocation: {
-        lat: lat,
-        lng: lng
-      }
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
-    }
-  }
-
-  componentDidMount() {
-    this.loadMap();
-  }
-
-  loadMap() {
-    if (this.props && this.props.google) {
-      // google is available
-      const {google} = this.props;
-      const maps = google.maps;
-
-      const mapRef = this.refs.map;
-      const node = ReactDOM.findDOMNode(mapRef);
-
-      let {initialCenter, zoom} = this.props;
-      const {lat, lng} = this.state.currentLocation;
-      const center = new maps.LatLng(lat, lng);
-      const mapConfig = Object.assign({}, {
-        center: center,
-        zoom: zoom
-      })
-      this.map = new maps.Map(node, mapConfig);
-
-      const eventNames = ['click', 'dragend'];
-
-      eventNames.forEach(e => {
-        this.map.addListener(e, this.handleEvent(e))
-      })
-    }
-  }
-
-  const camelize = function(str) {
-    return str.split(' ').map(function(word){
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    }).join('');
-  }
-
-  handleEvent(eventName) {
-    let timeout;
-    const handlerName = `on${camelize(eventName)}`
-
-    return (e) => {
-        if (timeout) {
-          clearTimeout(timeout);
-          timeout = null;
-        }
-        timeout = setTimeout(() => {
-          if (this.props[handlerName]) {
-            this.props[handlerName](this.props, this.map, e);
-          }
-        }, 0);
-      }
-    }
+import { Sidebar, Segment } from 'semantic-ui-react';
 
 
-  render() {
-    const {visible} = this.state
-    return (
-      <div ref='map'>
-        <Sidebar.Pushable as={Segment}>
-          <Sidebar animation='overlay' direction="bottom" visible={visible} inverted>
+class Map extends Component {
+  _renderMarkers() {
+   if (!this.props.places) {
+     return;
+   }
+   return this.props.places.map(p => {
+     return <Marker
+               key={p.id}
+               name={p.id}
+               place={p}
+               label={p.name}
+               onClick={this.props.onMarkerClick.bind(this)}
+               map={this.props.map}
+               position={p.geometry.location} />
+   });
+ }
 
-          </Sidebar>
-        </Sidebar.Pushable>
-      </div>
-    )
-  }
+ _renderChildren() {
+   const {children} = this.props;
+
+   if (React.Children.count(children) > 0) {
+     return React.Children.map(children, c => {
+       return React.cloneElement(c, this.props, {
+         map: this.props.map,
+         google: this.props.google
+       })
+     })
+   } else {
+     return this._renderMarkers();
+   }
+ }
+
+ render() {
+   const {children} = this.props;
+
+   return (
+     <Map map={this.props.map}
+       google={this.props.google}
+       className={styles.map}
+       zoom={this.props.zoom}
+       onRecenter={this.props.onMove}
+       onDragend={this.props.onMove}
+       onClick={this.props.onClick}
+       visible={!children || React.Children.count(children) == 0}
+       >
+       {this._renderChildren()}
+     </Map>
+   )
+ }
 }
 
-Map.propTypes = {
-  google: React.PropTypes.object,
-  zoom: React.PropTypes.number,
-  initialCenter: React.PropTypes.object,
-  onMove: React.PropTypes.func
-  eventNames.forEach(e => Map.propTypes[camelize(e)] = T.func)
-}
-
-  Map.defaultProps = {
-    zoom: 13,
-    // Charleston, by default
-    initialCenter: {
-      lat: 32.786850,
-      lng: -79.935674
-    },
-    onMove: function() {}
-  }
+export default Map
