@@ -6,7 +6,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import logo from '../logo.svg';
+import logo from '../Pizza-Slice-PNG-File.png';
 import './App.css';
 import Navbar from '../components/Navbar';
 
