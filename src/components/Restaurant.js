@@ -10,7 +10,7 @@ const Restaurant = ({ restaurant }) => {
       <Item.Image src={restaurant.image_url} size='small'	/>
 
       <Item.Content verticalAlign='middle'>
-        <Item.Header as='a'>{restaurant.name}</Item.Header>
+        <Item.Header as='a'><a target="_blank" href={restaurant.yelp_url}>{restaurant.name}</a></Item.Header>
           <Item.Extra>
             <Label>Cost: {restaurant.price}</Label>
             <Label>Rating: {restaurant.yelp_rating}</Label>
