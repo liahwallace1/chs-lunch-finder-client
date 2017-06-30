@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Map from '../components/Map';
 
 import {ScriptCache} from './lib/ScriptCache'
 import GoogleApi from './lib/GoogleApi'
