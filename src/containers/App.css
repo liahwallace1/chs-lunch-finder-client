@@ -31,6 +31,9 @@
 }
 
 .App-info {
+  background-color: white;
+  margin: 15px;
+  margin-top: 0px;
   font-size: large;
   height: 83vh;
 }
