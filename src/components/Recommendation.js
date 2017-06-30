@@ -12,8 +12,7 @@ class Recommendation extends Component {
   }
 
   handleMapToggle(rec_restaurant) {
-    this.props.dispatch(toggleMap())
-    this.props.dispatch(setMapCoordinates(rec_restaurant))
+    this.props.dispatch(toggleMap(rec_restaurant))
   }
 
   render() {
@@ -60,7 +59,7 @@ class Recommendation extends Component {
           <Button className="recom-button" size="large" color="blue" onClick={() => this.handleMapToggle(rec_restaurant)}><Icon name='map pin' />Where is it?</Button>
         </div>
       </div>
-      <ConnectedGoogleMapWrapper />
+      {this.props.toggleMap.restaurant ? <ConnectedGoogleMapWrapper /> : null}
     </div>
     )
   }
@@ -69,6 +68,7 @@ class Recommendation extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurantData: state.restaurantData,
+    toggleMap: state.toggleMap
   }
 }
 
