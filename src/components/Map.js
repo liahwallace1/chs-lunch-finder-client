@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 export class Map extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const {lat, lng} = this.props.initialCenter;
+    this.state = {
+      currentLocation: {
+        lat: lat,
+        lng: lng
+      }
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
@@ -23,7 +35,7 @@ export class Map extends React.Component {
       const node = ReactDOM.findDOMNode(mapRef);
 
       let {initialCenter, zoom} = this.props;
-      const {lat, lng} = initialCenter;
+      const {lat, lng} = this.state.currentLocation;
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
