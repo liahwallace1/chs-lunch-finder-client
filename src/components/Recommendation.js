@@ -18,14 +18,12 @@ class Recommendation extends Component {
 
   render() {
     const restaurant = this.props.recommendation.restaurant
-    const funny_intros = ["You know the lunch room is full of weirdos. Take a break at ", "A line at the microwave killing your day? Head over to ", "Indecisive much? You should go to "]
-    let intro = funny_intros[Math.floor(Math.random()*funny_intros.length)];
 
     return (
     <div className="recom-container">
       <div className="recom-info">
         <div className="recom-intro">
-          <h1>{intro}<a href={restaurant.yelp_url} className="recommended-restaurant">{restaurant.name}</a>!</h1>
+          <h1>{this.props.recommendation.current_intro}<a href={restaurant.yelp_url} className="recommended-restaurant">{restaurant.name}</a>!</h1>
         </div>
       <br />
         <Grid className="restaurant-info" columns={2} stackable verticalAlign='middle'>
@@ -57,8 +55,8 @@ class Recommendation extends Component {
           <Button className="recom-button" size="large" color="red" onClick={() => this.handleNewRecommendation()}><Icon name='refresh' />New Suggestion</Button>
           <Button className="recom-button" size="large" color="blue" onClick={() => this.handleMapToggle()}><Icon name='map pin' />Where is it?</Button>
         </div>
+        {this.props.recommendation.restaurant ? <ConnectedGoogleMapWrapper /> : null}
       </div>
-      {this.props.recommendation.restaurant ? <ConnectedGoogleMapWrapper /> : null}
     </div>
     )
   }
