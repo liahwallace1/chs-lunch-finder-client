@@ -1,4 +1,5 @@
 import { stopFetchingData } from './fetchingDataActions'
+import { setRecommendation } from './recommendationActions'
 
 const receiveRestaurantData = restaurantData => {
   return {
@@ -14,6 +15,7 @@ export const fetchRestaurantData = () => {
     .then(restaurantData => {
       dispatch(receiveRestaurantData(restaurantData))
       dispatch(stopFetchingData())
+      dispatch(setRecommendation(restaurantData[Math.floor(Math.random()*restaurantData.length)]))
     })
   }
 }
