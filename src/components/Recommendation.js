@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Icon, Button } from 'semantic-ui-react'
-import './Recommendation.css'
+import { Grid, Icon, Button } from 'semantic-ui-react';
+import { toggleMap } from '../actions/toggleMapActions';
+import { ConnectedGoogleMapWrapper } from '../containers/GoogleMapWrapper';
+import './Recommendation.css';
 
 class Recommendation extends Component {
 
   handleNewRecommendation() {
     this.forceUpdate();
+  }
+
+  handleMapToggle(rec_restaurant) {
+    this.props.dispatch(toggleMap())
+    this.props.dispatch(setMapCoordinates(rec_restaurant))
   }
 
   render() {
@@ -50,9 +57,10 @@ class Recommendation extends Component {
         </Grid>
         <div className="recom-buttons">
           <Button className="recom-button" size="large" color="red" onClick={() => this.handleNewRecommendation()}><Icon name='refresh' />New Suggestion</Button>
-          <Button className="recom-button" size="large" color="blue"><Icon name='map pin' />Where is it?</Button>
+          <Button className="recom-button" size="large" color="blue" onClick={() => this.handleMapToggle(rec_restaurant)}><Icon name='map pin' />Where is it?</Button>
         </div>
       </div>
+      <ConnectedGoogleMapWrapper />
     </div>
     )
   }
