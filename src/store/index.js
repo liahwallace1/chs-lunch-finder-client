@@ -7,11 +7,13 @@ import thunk from 'redux-thunk';
 import restaurantData from '../reducers/restaurantDataReducer';
 import fetchingData from '../reducers/fetchingDataReducer';
 import visibilityFilter from '../reducers/visibilityFilterReducer';
+import toggleMap from '../reducers/toggleMapReducer';
 
 const reducers = combineReducers({
   fetchingData,
   restaurantData,
   visibilityFilter,
+  toggleMap,
 })
 const middleware = [thunk]
 
