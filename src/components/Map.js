@@ -1,5 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export class Map extends React.Component {
   componentDidUpdate(prevProps, prevState) {
@@ -21,9 +22,8 @@ export class Map extends React.Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      let zoom = 14;
-      let lat = 37.774929;
-      let lng = -122.419416;
+      let {initialCenter, zoom} = this.props;
+      const {lat, lng} = initialCenter;
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
@@ -41,3 +41,18 @@ export class Map extends React.Component {
     )
   }
 }
+
+Map.propTypes = {
+  google: React.PropTypes.object,
+  zoom: React.PropTypes.number,
+  initialCenter: React.PropTypes.object
+
+
+  Map.defaultProps = {
+    zoom: 13,
+    // Charleston, by default
+    initialCenter: {
+      lat: 32.786850,
+      lng: -79.935674
+    }
+  }
