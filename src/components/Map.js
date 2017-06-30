@@ -45,8 +45,37 @@ export class Map extends React.Component {
       })
       this.map = new maps.Map(node, mapConfig);
 
+      const eventNames = ['click', 'dragend'];
+
+      eventNames.forEach(e => {
+        this.map.addListener(e, this.handleEvent(e))
+      })
     }
   }
+
+  const camelize = function(str) {
+    return str.split(' ').map(function(word){
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join('');
+  }
+
+  handleEvent(eventName) {
+    let timeout;
+    const handlerName = `on${camelize(eventName)}`
+
+    return (e) => {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        timeout = setTimeout(() => {
+          if (this.props[handlerName]) {
+            this.props[handlerName](this.props, this.map, e);
+          }
+        }, 0);
+      }
+    }
+
 
   render() {
     const {visible} = this.state
@@ -65,7 +94,9 @@ export class Map extends React.Component {
 Map.propTypes = {
   google: React.PropTypes.object,
   zoom: React.PropTypes.number,
-  initialCenter: React.PropTypes.object
+  initialCenter: React.PropTypes.object,
+  onMove: React.PropTypes.func
+  eventNames.forEach(e => Map.propTypes[camelize(e)] = T.func)
 }
 
   Map.defaultProps = {
@@ -74,5 +105,6 @@ Map.propTypes = {
     initialCenter: {
       lat: 32.786850,
       lng: -79.935674
-    }
+    },
+    onMove: function() {}
   }
