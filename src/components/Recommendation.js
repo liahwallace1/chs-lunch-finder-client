@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Grid, Icon, Button, Sidebar, Segment } from 'semantic-ui-react';
-import { Grid, Icon, Button, Embed } from 'semantic-ui-react';
+import { Grid, Icon, Button} from 'semantic-ui-react';
 import { setRecommendation, toggleMap } from '../actions/recommendationActions';
-import { ConnectedGoogleMapWrapper } from '../containers/GoogleMapWrapper';
+import { ConnectedContainer } from '../containers/Container';
 import './Recommendation.css';
 
 class Recommendation extends Component {
@@ -59,7 +59,7 @@ class Recommendation extends Component {
         </div>
 
         <div className="map-toggler" >
-          {this.props.recommendation.map_visible ? <ConnectedGoogleMapWrapper /> : null}
+          {this.props.recommendation.map_visible ? <ConnectedContainer /> : null}
         </div>
 
     </div>
