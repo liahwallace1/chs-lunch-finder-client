@@ -3,40 +3,29 @@ import ReactDOM from 'react-dom';
 import {GoogleApiWrapper, Marker} from 'google-maps-react';
 
 class Map extends Component {
-  componentDidUpdate(prevProps, prevState) {
-    debugger
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   debugger
+  //   if (prevProps.google !== this.props.google) {
+  //     this.loadMap();
+  //   }
+  // }
 
   componentDidMount() {
-    this.loadMap()
+    new this.props.google.maps.Map(this.refs.map, {
+      center: {lat: 32.532543, lng: -79.342354},
+      zoom: 14
+    })
   }
 
-  loadMap() {
-    if (this.props && this.props.google) {
-      // google is available
-      const maps = this.props.google.maps;
-      const node = this.refs.map;
 
-
-      let zoom = 14;
-      let lat = 32.532543;
-      let lng = -79.342354;
-      const center = new maps.LatLng(lat, lng);
-      const mapConfig = Object.assign({}, {
-        center: center,
-        zoom: zoom
-      })
-      debugger
-      this.map = new maps.Map(node, mapConfig);
-    }
-  }
 
  render() {
+   const style = {
+     width: '100vw',
+     height: '50vh'
+   }
    return (
-     <div ref='map'>
+     <div ref='map' style={style}>
       Loading Map
     </div>
    )
@@ -71,3 +60,22 @@ export default Map
 //   onRecenter={this.props.onMove}
 //   onDragend={this.props.onMove}
 //   />
+
+// loadMap() {
+//   if (this.props && this.props.google) {
+//     // google is available
+//     const maps = this.props.google.maps;
+//     const node = this.refs.map;
+//
+//
+//     let zoom = 14;
+//     let lat = 32.532543;
+//     let lng = -79.342354;
+//     const center = new maps.LatLng(lat, lng);
+//     const mapConfig = Object.assign({}, {
+//       center: center,
+//       zoom: zoom
+//     })
+//     this.map = new maps.Map(node, mapConfig);
+//   }
+// }
