@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-// import { connect } from 'react-redux';
 import {GoogleApiWrapper, Marker} from 'google-maps-react';
-// import PropTypes from 'prop-types';
 
 class Map extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    debugger
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
+  }
 
+  componentDidMount() {
+    this.loadMap()
+  }
 
   loadMap() {
-    debugger
     if (this.props && this.props.google) {
       // google is available
-      const {google} = this.props;
-      const maps = google.maps;
+      const maps = this.props.google.maps;
+      const node = this.refs.map;
 
-      const mapRef = this.refs.map;
-      const node = ReactDOM.findDOMNode(mapRef);
-      console.log(node)
 
       let zoom = 14;
       let lat = 32.532543;
@@ -26,12 +29,12 @@ class Map extends Component {
         center: center,
         zoom: zoom
       })
+      debugger
       this.map = new maps.Map(node, mapConfig);
     }
   }
 
  render() {
-   this.loadMap()
    return (
      <div ref='map'>
       Loading Map

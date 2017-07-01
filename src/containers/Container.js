@@ -17,7 +17,7 @@ class Container extends Component {
     return (
       <div className='map-container' style={style}>
         <MapHeader restaurant={this.props.recommendation.restaurant}/>
-        <Map google={this.props.google.maps.map} />
+        <Map google={this.props.google} restaurant={this.props.recommendation.restaurant}/>
       </div>
     )
   }
