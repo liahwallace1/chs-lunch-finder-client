@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Icon, Button} from 'semantic-ui-react';
-import { setRecommendation, toggleMap } from '../actions/recommendationActions';
+import { setRecommendation, toggleMap, updateMapWidth } from '../actions/recommendationActions';
 import { ConnectedContainer } from './Container';
 import './Recommendation.css';
 
 class Recommendation extends Component {
+
+  componentDidMount() {
+    this.props.recommendation.map_visible === true ? this.props.dispatch(toggleMap()) : null
+    window.addEventListener('resize', () => this.props.dispatch(updateMapWidth()));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => this.props.dispatch(updateMapWidth()));
+  }
 
   handleNewRecommendation() {
     let restaurant = this.props.restaurantData[Math.floor(Math.random()*this.props.restaurantData.length)]
@@ -15,6 +24,7 @@ class Recommendation extends Component {
 
   handleMapToggle() {
     this.props.dispatch(toggleMap())
+    window.scrollTo(0,document.body.scrollHeight)
   }
 
   render() {

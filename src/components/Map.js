@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class Map extends Component {
 
@@ -16,10 +17,10 @@ class Map extends Component {
   }
 
 
+
  render() {
-   const width = window.innerWidth - 90
    const style = {
-     width: `${width}px`,
+     width: `${this.props.recommendation.map_width}px`,
      height: '430px'
    }
 
@@ -31,4 +32,11 @@ class Map extends Component {
  }
 }
 
-export default Map
+const mapStateToProps = (state) => {
+  return {
+    recommendation: state.recommendation
+  }
+}
+
+
+export const ConnectedMap = connect(mapStateToProps)(Map)
