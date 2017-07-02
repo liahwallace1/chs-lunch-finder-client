@@ -15,10 +15,12 @@ class Map extends Component {
     window.scrollTo(0,document.body.scrollHeight)
   }
 
+
  render() {
+   const width = window.innerWidth - 90
    const style = {
-     width: '100%',
-     height: '425px'
+     width: `${width}px`,
+     height: '430px'
    }
 
    return (
