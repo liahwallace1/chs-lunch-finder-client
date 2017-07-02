@@ -6,18 +6,20 @@ import Map from '../components/Map';
 
 class Container extends Component {
   render() {
+    const restaurant = this.props.recommendation.restaurant
+    const pos = {lat: restaurant.latitude, lng: restaurant.longitude}
 
     const style = {
       width: '100vw',
-      height: '50vh'
+      height: '500px',
     }
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
     return (
       <div className='map-container' style={style}>
-        <MapHeader restaurant={this.props.recommendation.restaurant}/>
-        <Map google={this.props.google} restaurant={this.props.recommendation.restaurant}/>
+        <MapHeader restaurant={restaurant}/>
+        <Map google={this.props.google} restaurant={restaurant} />
       </div>
     )
   }
