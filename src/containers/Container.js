@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {GoogleApiWrapper} from 'google-maps-react';
 import MapHeader from '../components/MapHeader';
-import Map from '../components/Map';
+import {ConnectedMap} from '../components/Map';
 
 class Container extends Component {
 
@@ -19,7 +19,7 @@ class Container extends Component {
     return (
       <div className='map-container' style={style}>
         <MapHeader restaurant={restaurant}/>
-        <Map google={this.props.google} restaurant={restaurant} />
+        <ConnectedMap google={this.props.google} restaurant={restaurant} />
       </div>
     )
   }
