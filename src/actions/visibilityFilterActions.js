@@ -1,8 +1,4 @@
-// export const toggleFilter = () => {
-//   return {
-//     type: 'TOGGLE_FILTER',
-//   };
-// }
+
 export const addPriceFilter = (priceType) => {
   return {
     type: 'ADD_PRICE_FILTER', priceType

@@ -6,8 +6,6 @@ let initialState = {
 
 const visibilityFilter = (state = initialState, action) => {
   switch (action.type) {
-    // case 'TOGGLE_FILTER':
-    //   return {visible: state.visible.toggle}
     case 'ADD_PRICE_FILTER':
       return Object.assign({}, state, { priceFilter: [...state.priceFilter, action.priceType], locationFilter: [...state.locationFilter], takeoutFilter: state.takeoutFilter})
 

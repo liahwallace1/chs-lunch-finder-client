@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Filter.css';
-// import { bindActionCreators } from 'redux';
 import { addPriceFilter, removePriceFilter, addLocationFilter, removeLocationFilter, addTakeoutFilter, removeTakeoutFilter } from '../actions/visibilityFilterActions';
-// import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
+
 
 class Filter extends Component {
 
@@ -63,20 +61,7 @@ class Filter extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurantFilters: state.restaurantFilters,
-    // toggleFilter: state.filterReducer
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({
-//     addPriceFilter: addPriceFilter },
-//     {
-//       removePriceFilter: removePriceFilter
-//     }, {
-//       addLocationFilter: addLocationFilter
-//     }, {
-//       removeLocationFilter: removeLocationFilter
-//     }, dispatch)
-// }
 
 export const ConnectedFilter = connect(mapStateToProps)(Filter)
