@@ -9,3 +9,9 @@ export const toggleMap = () => {
     type: 'TOGGLE_MAP'
   };
 }
+
+export const updateMapWidth = () => {
+  return {
+    type: 'UPDATE_MAP_WIDTH'
+  };
+}
