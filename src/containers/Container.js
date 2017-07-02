@@ -7,7 +7,6 @@ import Map from '../components/Map';
 class Container extends Component {
   render() {
     const restaurant = this.props.recommendation.restaurant
-    const pos = {lat: restaurant.latitude, lng: restaurant.longitude}
 
     const style = {
       width: '100vw',
