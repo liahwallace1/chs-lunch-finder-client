@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Grid, Icon, Button, Sidebar, Segment } from 'semantic-ui-react';
 import { Grid, Icon, Button} from 'semantic-ui-react';
 import { setRecommendation, toggleMap } from '../actions/recommendationActions';
 import { ConnectedContainer } from '../containers/Container';
@@ -24,7 +23,7 @@ class Recommendation extends Component {
     <div className="recom-container">
         <div className="recom-info">
           <div className="recom-intro">
-            <h1>{this.props.recommendation.current_intro}<a href={restaurant.yelp_url} className="recommended-restaurant">{restaurant.name}</a>!</h1>
+            <h1>{this.props.recommendation.current_intro}<a target="_blank" href={restaurant.yelp_url} className="recommended-restaurant">{restaurant.name}</a>!</h1>
           </div>
         <br />
           <Grid className="restaurant-info" columns={2} stackable verticalAlign='middle'>
