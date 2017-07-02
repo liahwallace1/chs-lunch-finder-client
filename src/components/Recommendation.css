@@ -39,3 +39,11 @@
 .map-toggler {
     background-color: #742edb;
 }
+
+.map-container {
+  margin-right: 35px;
+}
+
+.google-map {
+  position: relative;
+}
