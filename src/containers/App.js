@@ -11,7 +11,6 @@ import './App.css';
 import Navbar from '../components/Navbar';
 
 // Routes
-// import Home from '../components/Home';
 import { ConnectedVisibleRestaurantList } from './VisibleRestaurantList';
 import { ConnectedRecommendation } from '../components/Recommendation';
 import NotFound from '../components/NotFound';
