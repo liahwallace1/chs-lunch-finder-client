@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {GoogleApiWrapper, Marker} from 'google-maps-react';
 
 class Map extends Component {
-  // componentDidUpdate(prevProps, prevState) {
-  //   debugger
-  //   if (prevProps.google !== this.props.google) {
-  //     this.loadMap();
-  //   }
-  // }
 
   componentDidMount() {
-    new this.props.google.maps.Map(this.refs.map, {
-      center: {lat: 32.532543, lng: -79.342354},
+    const position = {lat: this.props.restaurant.latitude, lng: this.props.restaurant.longitude}
+    const map = new this.props.google.maps.Map(this.refs.map, {
+      center: position,
       zoom: 14
+    })
+    const marker = new this.props.google.maps.Marker({
+            map: map,
+            position: position
     })
   }
 
@@ -21,11 +19,12 @@ class Map extends Component {
 
  render() {
    const style = {
-     width: '100vw',
-     height: '50vh'
+     width: '100%',
+     height: '425px'
    }
+
    return (
-     <div ref='map' style={style}>
+     <div ref='map' className="google-map" style={style}>
       Loading Map
     </div>
    )
