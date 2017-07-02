@@ -5,6 +5,7 @@ import MapHeader from '../components/MapHeader';
 import Map from '../components/Map';
 
 class Container extends Component {
+
   render() {
     const restaurant = this.props.recommendation.restaurant
 

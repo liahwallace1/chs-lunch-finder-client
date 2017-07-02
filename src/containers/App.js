@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +11,7 @@ import Navbar from '../components/Navbar';
 
 // Routes
 import { ConnectedVisibleRestaurantList } from './VisibleRestaurantList';
-import { ConnectedRecommendation } from '../components/Recommendation';
+import { ConnectedRecommendation } from './Recommendation';
 import NotFound from '../components/NotFound';
 
 //Actions
