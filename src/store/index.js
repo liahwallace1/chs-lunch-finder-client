@@ -8,12 +8,14 @@ import restaurantData from '../reducers/restaurantDataReducer';
 import fetchingData from '../reducers/fetchingDataReducer';
 import visibilityFilter from '../reducers/visibilityFilterReducer';
 import recommendation from '../reducers/recommendationReducer';
+import hashtag from '../reducers/hashtagReducer';
 
 const reducers = combineReducers({
   fetchingData,
   restaurantData,
   visibilityFilter,
   recommendation,
+  hashtag
 })
 const middleware = [thunk]
 
