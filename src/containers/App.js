@@ -16,11 +16,13 @@ import NotFound from '../components/NotFound';
 
 //Actions
 import { fetchRestaurantData } from '../actions/restaurantDataActions'
+import { fetchHashtagOptions } from '../actions/hashtagActions'
 import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
 
   componentDidMount() {
+    this.props.dispatch(fetchHashtagOptions())
     this.props.fetchRestaurantData()
   }
 
@@ -58,8 +60,10 @@ class App extends Component {
 export default connect(
   state => ({
     fetchingData: state.fetchingData,
-    restaurantData: state.restaurantData
+    restaurantData: state.restaurantData,
+    hashtagOptions: state.hashtagOptions
   }), {
     stopFetchingData,
     fetchRestaurantData
+    fetchHashtagOptions
   })(App);
