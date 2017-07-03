@@ -77,7 +77,7 @@ export class VisibleRestaurantList extends Component {
     return (
       <div className="rest-list-container">
         <ConnectedFilter  />
-        <RestaurantList restaurants={restaurants}/>
+        <RestaurantList restaurants={restaurants} hashtagOptions={this.props.hashtagOptions}/>
       </div>
     )
   }
