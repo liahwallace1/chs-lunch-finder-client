@@ -1,10 +1,10 @@
-const hashtagData = (state = [], action) => {
+const hashtag = (state = [], action) => {
   switch (action.type) {
-    case 'RECEIVE_HASHTAG_DATA':
-      return action.hashtagData;
+    case 'RECEIVE_HASHTAG_OPTIONS':
+      return action.hashtagOptions;
     default:
       return state
   }
 }
 
-export default hashtagData
+export default hashtag

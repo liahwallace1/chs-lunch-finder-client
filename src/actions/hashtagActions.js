@@ -1,6 +1,6 @@
 const receiveHashtagOptions = hashtagOptions => {
   return {
-    type: 'RECEIVE_HASHTAG_DATA',
+    type: 'RECEIVE_HASHTAG_OPTIONS',
     hashtagOptions
   };
 }
