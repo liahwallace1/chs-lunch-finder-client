@@ -68,16 +68,22 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
+const getHashtagNames = (hashtags) => {
+  var names = []
+  hashtags.map(hashtag => names.push(hashtag.name))
+  return names
+}
 
 export class VisibleRestaurantList extends Component {
   render() {
 
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
+    var hashtagOptions = getHashtagNames(this.props.hashtag)
 
     return (
       <div className="rest-list-container">
         <ConnectedFilter  />
-        <RestaurantList restaurants={restaurants} hashtagOptions={this.props.hashtagOptions}/>
+        <RestaurantList restaurants={restaurants} hashtagOptions={hashtagOptions}/>
       </div>
     )
   }
@@ -86,6 +92,7 @@ export class VisibleRestaurantList extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurantData: state.restaurantData,
+    hashtag: state.hashtag,
     visibilityFilter: state.visibilityFilter
   }
 }

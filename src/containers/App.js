@@ -21,8 +21,11 @@ import { stopFetchingData } from '../actions/fetchingDataActions'
 
 class App extends Component {
 
+  componentWillMount() {
+    this.props.fetchHashtagOptions()
+  }
+
   componentDidMount() {
-    this.props.dispatch(fetchHashtagOptions())
     this.props.fetchRestaurantData()
   }
 
@@ -54,16 +57,16 @@ class App extends Component {
 }
 
 // const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({ fetchRestaurantData: fetchRestaurantData }, dispatch)
+//   return bindActionCreators({ fetchRestaurantData: fetchRestaurantData, fetchHashtagOptions: fetchHashtagOptions }, dispatch)
 // }
 
 export default connect(
   state => ({
     fetchingData: state.fetchingData,
     restaurantData: state.restaurantData,
-    hashtagOptions: state.hashtagOptions
+    hashtag: state.hashtag
   }), {
     stopFetchingData,
-    fetchRestaurantData
+    fetchRestaurantData,
     fetchHashtagOptions
   })(App);
