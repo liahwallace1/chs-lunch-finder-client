@@ -16,8 +16,6 @@ class Map extends Component {
     window.scrollTo(0,document.body.scrollHeight)
   }
 
-
-
  render() {
    const style = {
      width: `${this.props.recommendation.map_width}px`,
