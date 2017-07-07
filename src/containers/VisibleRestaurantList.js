@@ -68,17 +68,17 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
-const getHashtagNames = (hashtags) => {
-  var names = []
-  hashtags.map(hashtag => names.push(hashtag.name))
-  return names
+const getHashtagOptions = (hashtags) => {
+  var options = []
+  hashtags.map(hashtag => options.push({key: hashtag.id, text: hashtag.name, value: hashtag.name}))
+  return options
 }
 
 export class VisibleRestaurantList extends Component {
   render() {
 
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
-    var hashtagOptions = getHashtagNames(this.props.hashtag)
+    var hashtagOptions = getHashtagOptions(this.props.hashtag)
 
     return (
       <div className="rest-list-container">
