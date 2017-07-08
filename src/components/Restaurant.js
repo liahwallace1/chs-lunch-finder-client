@@ -1,8 +1,9 @@
 import React from 'react';
 import { Item, Label, Icon, Button, Dropdown } from 'semantic-ui-react';
-import './Restaurant.css'
+import HashtagInput from './HashtagInput';
+import './Restaurant.css';
 
-const Restaurant = ({ restaurant, hashtagOptions, onClick }) => {
+const Restaurant = ({ restaurant, hashtagOptions }) => {
 
   return (
     <Item key={restaurant.id}>
@@ -22,10 +23,7 @@ const Restaurant = ({ restaurant, hashtagOptions, onClick }) => {
           </Item.Description>
           <Item.Extra className="hashtags">
             Hashtags: {restaurant.hashtags_list}<br />
-            <Button.Group>
-            <Dropdown placeholder='Add Hashtag' floating button className='icon' multiple search selection options={hashtagOptions} />
-            <Button icon="checkmark" onClick={onClick} />
-            </Button.Group>
+            <HashtagInput />
           </Item.Extra>
       </Item.Content>
     </Item>
