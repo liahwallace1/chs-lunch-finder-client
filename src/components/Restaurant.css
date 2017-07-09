@@ -19,3 +19,7 @@
 .extra {
   color: #2e96db;
 }
+
+.hashtags {
+  display: inline-block;
+}

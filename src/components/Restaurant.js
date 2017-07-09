@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Label, Icon, Button, Modal } from 'semantic-ui-react';
+import { Item, Label, Icon } from 'semantic-ui-react';
 import { ConnectedAddHashtagForm } from './AddHashtagForm';
 import './Restaurant.css';
 
@@ -22,7 +22,7 @@ const Restaurant = ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
             {restaurant.address}, {restaurant.city}, {restaurant.state} {restaurant.zip_code} - {restaurant.display_phone}
           </Item.Description>
           <Item.Extra className="hashtags">
-            Hashtags: {restaurant.hashtags_list}<br />
+            Hashtags: {restaurant.hashtags_list.join(", ")}<br />
             <ConnectedAddHashtagForm restaurant={restaurant}/>
           </Item.Extra>
       </Item.Content>
