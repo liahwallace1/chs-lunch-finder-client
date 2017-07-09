@@ -19,3 +19,23 @@ export const fetchRestaurantData = () => {
     })
   }
 }
+
+export const updateRestaurantHashtags = (hashtags) => {
+  return {
+    type: 'UPDATE_RESTAURANT_HASHTAGS', hashtags
+  }
+}
+
+export const postRestaurantHashtags = (restaurant) => {
+  return dispatch => {
+    fetch(`/api/restaurants/${restaurant.id}`,
+    {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({restaurant: restaurant})
+    })
+  }
+}
