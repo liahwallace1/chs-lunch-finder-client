@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Dropdown, Form, Modal, Image, Header } from 'semantic-ui-react';
-import { addSelectedHashtag, sendRestaurantHashtags } from '../actions/hashtagActions';
-import { updateRestaurantState } from '../actions/restaurantDataActions';
+import { addSelectedHashtag } from '../actions/hashtagActions';
+import { updateRestaurant } from '../actions/restaurantDataActions';
 
 const getHashtagOptions = (hashtags) => {
   var options = []
@@ -23,8 +23,8 @@ class AddHashtagForm extends Component {
     var combinedHashtags = restaurant.hashtags_list.concat(data.hashtags).filter((x, i, a) => a.indexOf(x) === i)
     var updatedRestaurant = Object.assign({}, restaurant, {
       hashtags_list: combinedHashtags})
-      console.log(updatedRestaurant)
-    // this.props.dispatch(updateRestaurant(updatedRestaurant))
+
+    this.props.dispatch(updateRestaurant(updatedRestaurant))
   }
 
   render() {
