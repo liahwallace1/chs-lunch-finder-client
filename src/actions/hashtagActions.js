@@ -14,3 +14,9 @@ export const fetchHashtagOptions = () => {
     })
   }
 }
+
+export const addSelectedHashtag = (selectedHashtags) => {
+  return {
+    type: 'ADD_SELECTED_HASHTAG', selectedHashtags
+  }
+}
