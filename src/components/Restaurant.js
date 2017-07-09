@@ -4,7 +4,6 @@ import { ConnectedAddHashtagForm } from './AddHashtagForm';
 import './Restaurant.css';
 
 const Restaurant = ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
-
   return (
     <Item key={restaurant.id}>
       <Item.Image src={restaurant.image_url} size='small'	/>

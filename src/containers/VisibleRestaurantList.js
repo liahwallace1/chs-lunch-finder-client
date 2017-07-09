@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RestaurantList from '../components/RestaurantList';
 import { ConnectedFilter } from './Filter';
-import { updateHashtags } from '../actions/hashtagActions';
 
 
 const getVisibleRestaurants = (restaurants, filter) => {
@@ -69,22 +68,11 @@ const getVisibleRestaurants = (restaurants, filter) => {
   }
 }
 
-// const getHashtagOptions = (hashtags) => {
-//   var options = []
-//   hashtags.map(hashtag => options.push({key: hashtag.id, text: hashtag.name, value: hashtag.name}))
-//   return options
-// }
-
 export class VisibleRestaurantList extends Component {
-
-  // manageHashtag(e) {
-  //   console.log(e.target)
-  // }
 
   render() {
 
     var restaurants = getVisibleRestaurants(this.props.restaurantData, this.props.visibilityFilter)
-    // var hashtagOptions = getHashtagOptions(this.props.hashtag)
 
     return (
       <div className="rest-list-container">
@@ -98,7 +86,6 @@ export class VisibleRestaurantList extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurantData: state.restaurantData,
-    // hashtag: state.hashtag,
     visibilityFilter: state.visibilityFilter
   }
 }
