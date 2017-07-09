@@ -20,22 +20,31 @@ export const fetchRestaurantData = () => {
   }
 }
 
-export const updateRestaurantHashtags = (hashtags) => {
+// export function updateRestaurant(updatedRestaurant) {
+//   return (dispatch) => {
+//     dispatch({type: 'UPDATE_RESTAURANT_STATE', selectedHashtagsObject})
+//   }
+// }
+
+const updateRestaurantData = restaurant => {
   return {
-    type: 'UPDATE_RESTAURANT_HASHTAGS', hashtags
-  }
+    type: 'UPDATE_RESTAURANT_DATA',
+    restaurant
+  };
 }
 
-export const postRestaurantHashtags = (restaurant) => {
+export const UpdateRestaurant = (updatedRestaurant) => {
   return dispatch => {
-    fetch(`/api/restaurants/${restaurant.id}`,
+    fetch(`/api/restaurants/${updateRestaurant.id}`,
     {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify({restaurant: restaurant})
+        body: JSON.stringify({restaurant: updatedRestaurant})
+    }).then(responseRestaurant => {
+      dispatch(updateRestaurantData(responseRestaurant))
     })
   }
 }
