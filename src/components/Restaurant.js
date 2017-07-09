@@ -23,9 +23,7 @@ const Restaurant = ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
           </Item.Description>
           <Item.Extra className="hashtags">
             Hashtags: {restaurant.hashtags_list}<br />
-            <Modal trigger={<Button small>Add Hashtag</Button>} closeIcon='close'>
-              <ConnectedAddHashtagForm />
-            </Modal>
+            <ConnectedAddHashtagForm restaurant={restaurant}/>
           </Item.Extra>
       </Item.Content>
     </Item>
