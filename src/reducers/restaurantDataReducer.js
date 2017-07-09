@@ -3,10 +3,7 @@ const restaurantData = (state = [], action) => {
     case 'RECEIVE_RESTAURANT_DATA':
       return action.restaurantData;
     case 'UPDATE_RESTAURANT_DATA':
-      return [
-        ...state.filter(restaurant => restaurant.id !== action.restaurant.id),
-        Object.assign({}, action.restaurant)
-      ]
+      return action.restaurantData
     default:
       return state
   }
