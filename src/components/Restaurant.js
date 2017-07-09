@@ -1,6 +1,6 @@
 import React from 'react';
-import { Item, Label, Icon, Button, Dropdown } from 'semantic-ui-react';
-import HashtagInput from './HashtagInput';
+import { Item, Label, Icon, Button, Modal } from 'semantic-ui-react';
+import { ConnectedAddHashtagForm } from './AddHashtagForm';
 import './Restaurant.css';
 
 const Restaurant = ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
@@ -23,10 +23,9 @@ const Restaurant = ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
           </Item.Description>
           <Item.Extra className="hashtags">
             Hashtags: {restaurant.hashtags_list}<br />
-            <Button.Group>
-            <Dropdown placeholder='Add Hashtag' floating button className='icon' multiple search selection options={hashtagOptions} />
-            <Button icon="checkmark" onClick={manageHashtagCallback} />
-            </Button.Group>
+            <Modal trigger={<Button small>Add Hashtag</Button>} closeIcon='close'>
+              <ConnectedAddHashtagForm />
+            </Modal>
           </Item.Extra>
       </Item.Content>
     </Item>
