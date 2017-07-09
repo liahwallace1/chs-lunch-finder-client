@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Icon, Button, Dropdown, Form, Modal, Image, Header } from 'semantic-ui-react';
+import { Button, Dropdown, Form, Modal, Image, Header } from 'semantic-ui-react';
+import { addSelectedHashtag } from '../actions/hashtagActions';
 
 const getHashtagOptions = (hashtags) => {
   var options = []
@@ -10,19 +11,28 @@ const getHashtagOptions = (hashtags) => {
 
 class AddHashtagForm extends Component {
 
+  setValue(e, data) {
+    this.props.dispatch(addSelectedHashtag(this.props.restaurant.id, data.value))
+  }
+
+  manageHashtag(e, data) {
+    e.preventDefault();
+    console.log(data.value)
+  }
+
   render() {
-    var hashtagOptions = getHashtagOptions(this.props.hashtag)
+    var hashtagOptions = getHashtagOptions(this.props.hashtag.hashtagOptions)
     return (
-      <Modal trigger={<Button small>Add Hashtag</Button>} closeIcon='close'>
+      <Modal trigger={<Button size='small'>Add Hashtag</Button>} closeIcon='close'>
         <Modal.Header>Add a Hashtag:</Modal.Header>
         <Modal.Content>
          <Image wrapped size='small' src={this.props.restaurant.image_url} floated='left' />
          <Modal.Description>
            <Header>{this.props.restaurant.name}</Header>
-            <Form>
+            <Form onSubmit={(e) => this.manageHashtag(e)}>
               <Form.Group inline>
-                <Dropdown placeholder='Add Hashtag' floating button className='icon' multiple search selection options={hashtagOptions} />
-                <Button icon="checkmark" onClick={(e) => this.manageHashtag(e)} />
+                <Dropdown placeholder='Add Hashtag' floating button className='icon' multiple search selection options={hashtagOptions} onChange={this.setValue.bind(this)}/>
+                <Button icon="checkmark" type='submit' />
               </Form.Group>
             </Form>
           </Modal.Description>
