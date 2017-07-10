@@ -39,7 +39,7 @@ What's For Lunch Charleston is a single page application with Rails API and Reac
 ### Tech
 
   What's For Lunch Charleston Client uses a number of open source projects to work properly:
-  * [React](https://facebook.github.io/react/) - A JavaScript lubrary for building user interfaces.
+  * [React](https://facebook.github.io/react/) - A JavaScript library for building user interfaces.
   * [Redux](http://redux.js.org/) - State management system for JavaScript apps.
   * [React Router](https://reacttraining.com/react-router/) - A collection of navigational components that compose declaratively with your application.
   * [Redux Thunk middleware](https://www.npmjs.com/package/redux-thunk) - Allows you to write action creators that return a function instead of an action.
@@ -57,4 +57,3 @@ What's For Lunch Charleston is a single page application with Rails API and Reac
 ## License
 
   This Web Application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
