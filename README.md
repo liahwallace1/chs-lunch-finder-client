@@ -10,7 +10,7 @@ What's For Lunch Charleston is a single page application with Rails API and Reac
   - Utilizes Google Maps API to show location of lunch recommendation
 
 ## Video Walkthrough
-  [![IMAGE ALT TEXT](https://youtu.be/1YC1DSYAXeQ)](https://i.ytimg.com/vi/1YC1DSYAXeQ/1.jpg?time=1499657680123)
+  [Youtube Video](https://youtu.be/1YC1DSYAXeQ)
 
 ## Installation and Usage
   Clone this repository and the [Rails API](https://github.com/liahwallace1/chs-lunch-finder-api), then execute:
