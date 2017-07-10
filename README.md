@@ -1,6 +1,6 @@
 # Welcome to What's For Lunch Charleston!
 
-What's For Lunch Charleston is a single page application with Rails API and React client side ([see the API repository][chs-lunch-finder-api). This app can help people in Charleston pick a lunch restaurant, or it can suggest a place for them.
+What's For Lunch Charleston is a single page application with Rails API and React client side ([see the API repository](https://github.com/liahwallace1/chs-lunch-finder-api). This app can help people in Charleston pick a lunch restaurant, or it can suggest a place for them.
 
   - Single page application using React.js.
   - State management with Redux.
@@ -13,7 +13,7 @@ What's For Lunch Charleston is a single page application with Rails API and Reac
   [![IMAGE ALT TEXT](https://youtu.be/1YC1DSYAXeQ)](https://i.ytimg.com/vi/1YC1DSYAXeQ/1.jpg?time=1499657680123)
 
 ## Installation and Usage
-  Clone this repository and the [Rails API][chs-lunch-finder-api], then execute:
+  Clone this repository and the [Rails API](https://github.com/liahwallace1/chs-lunch-finder-api), then execute:
   ```
   $ cd chs-lunch-finder-api
   $ bundle install
@@ -39,31 +39,22 @@ What's For Lunch Charleston is a single page application with Rails API and Reac
 ### Tech
 
   What's For Lunch Charleston Client uses a number of open source projects to work properly:
-  * [React][React] - A JavaScript lubrary for building user interfaces.
-  * [Redux][Redux] - State management system for JavaScript apps.
-  * [React Router][React Router] - A collection of navigational components that compose declaratively with your application.
-  * [Redux Thunk middleware][Redux Thunk middleware] - Allows you to write action creators that return a function instead of an action.
-  * [Yelp Fusion API][Yelp Fusion API] - Allows you to connect with data from over 50 million businesses.
-  * [Google Maps API][Google Maps API] - Allows you to display and customize Google Maps on your webpage.
+  * [React](https://facebook.github.io/react/) - A JavaScript lubrary for building user interfaces.
+  * [Redux](http://redux.js.org/) - State management system for JavaScript apps.
+  * [React Router](https://reacttraining.com/react-router/) - A collection of navigational components that compose declaratively with your application.
+  * [Redux Thunk middleware](https://www.npmjs.com/package/redux-thunk) - Allows you to write action creators that return a function instead of an action.
+  * [Yelp Fusion API](https://www.yelp.com/fusion) - Allows you to connect with data from over 50 million businesses.
+  * [Google Maps API](https://developers.google.com/maps/) - Allows you to display and customize Google Maps on your webpage.
 
 
-  What's For Lunch Charleston itself is open source with a [public repository][chs-lunch-finder-client]
+  What's For Lunch Charleston itself is open source with a [public repository](https://github.com/liahwallace1/chs-lunch-finder-client)
    on GitHub.
 
 ## Contributing
 
-  Bug reports and pull requests are welcome on GitHub at [this project's repository][chs-lunch-finder-client]. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+  Bug reports and pull requests are welcome on GitHub at [this project's repository](https://github.com/liahwallace1/chs-lunch-finder-client). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
   This Web Application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-
-     [chs-lunch-finder-api]: <https://github.com/liahwallace1/chs-lunch-finder-api>
-     [chs-lunch-finder-client]: <https://github.com/liahwallace1/chs-lunch-finder-client>
-     [React]: <https://facebook.github.io/react/>
-     [Redux]: <http://redux.js.org/>
-     [React Router]: <https://reacttraining.com/react-router/>
-     [Redux Thunk middleware]: <https://www.npmjs.com/package/redux-thunk>
-     [Yelp Fusion API]: <https://www.yelp.com/fusion>
-     [Google Maps API]: <https://developers.google.com/maps/>
