@@ -10,7 +10,7 @@ const receiveRestaurantData = restaurantData => {
 
 export const fetchRestaurantData = () => {
   return dispatch => {
-    fetch("/api/restaurants.json")
+    fetch("https://chs-lunch-finder-api.herokuapp.com/aoi/restaurants")
     .then(res => res.json())
     .then(restaurantData => {
       dispatch(receiveRestaurantData(restaurantData))
@@ -29,7 +29,7 @@ const updateRestaurantData = restaurantData => {
 
 export const updateRestaurant = (updatedRestaurant) => {
   return dispatch => {
-    fetch(`/api/restaurants/${updatedRestaurant.id}.json`,
+    fetch(`https://chs-lunch-finder-api.herokuapp.com/api/restaurants/${updatedRestaurant.id}.json`,
     {
         method: "PUT",
         headers: {
