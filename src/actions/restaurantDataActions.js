@@ -1,5 +1,8 @@
+import "isomorphic-fetch"
+
 import { stopFetchingData } from './fetchingDataActions'
 import { setRecommendation } from './recommendationActions'
+
 
 const receiveRestaurantData = restaurantData => {
   return {

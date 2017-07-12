@@ -1,3 +1,5 @@
+import "isomorphic-fetch"
+
 const receiveHashtagOptions = hashtagOptions => {
   return {
     type: 'RECEIVE_HASHTAG_OPTIONS',
