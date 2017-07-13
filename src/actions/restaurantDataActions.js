@@ -13,7 +13,7 @@ const receiveRestaurantData = restaurantData => {
 
 export const fetchRestaurantData = () => {
   return dispatch => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/restaurants.json`)
+    fetch(`https://chs-lunch-finder.herokuapp.com/api/restaurants.json`)
     .then(res => res.json())
     .then(restaurantData => {
       dispatch(receiveRestaurantData(restaurantData))
@@ -32,7 +32,7 @@ const updateRestaurantData = restaurantData => {
 
 export const updateRestaurant = (updatedRestaurant) => {
   return dispatch => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/restaurants/${updatedRestaurant.id}.json`,
+    fetch(`https://chs-lunch-finder.herokuapp.com/api/restaurants/${updatedRestaurant.id}.json`,
     {
         method: "PUT",
         headers: {
