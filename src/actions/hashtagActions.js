@@ -12,8 +12,9 @@ export const fetchHashtagOptions = () => {
     fetch(`https://chs-lunch-finder-api.herokuapp.com/api/hashtags.json`,
     {method: 'GET',
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://chs-lunch-finder.herokuapp.com/'
+      'Origin': 'https://chs-lunch-finder.herokuapp.com'
     }
   })
     .then(res => res.json())
