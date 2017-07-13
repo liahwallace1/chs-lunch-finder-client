@@ -9,7 +9,7 @@ const receiveHashtagOptions = hashtagOptions => {
 
 export const fetchHashtagOptions = () => {
   return dispatch => {
-    fetch(`https://chs-lunch-finder.herokuapp.com/api/hashtags.json`)
+    fetch(`https://chs-lunch-finder-api.herokuapp.com/api/hashtags.json`)
     .then(res => res.json())
     .then(hashtagOptions => {
       dispatch(receiveHashtagOptions(hashtagOptions))
