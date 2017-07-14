@@ -32,5 +32,5 @@ const mapStateToProps = (state) => {
 }
 
 export const ConnectedContainer = connect(mapStateToProps)(GoogleApiWrapper({
-  apiKey: 'AIzaSyBHctnD2biEXNByZnGKdXRq836H0WPHu-8', version: '3.27'
+  apiKey: '`${process.env.REACT_APP_GOOGLE_KEY}`', version: '3.27'
 })(Container))
