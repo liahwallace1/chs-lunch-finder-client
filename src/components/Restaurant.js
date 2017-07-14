@@ -25,9 +25,6 @@ const Restaurant = ({restaurant}) => {
             Hashtags: {restaurant.hashtags_list.join(", ")}<br />
             <ConnectedAddHashtagForm restaurant={restaurant}/>
           </Item.Extra>
-          <Item.Extra>
-            <Button onClick={(e)=>this.handleVotes(e)}>Votes {this.state.votes}</Button>
-          </Item.Extra>
       </Item.Content>
     </Item>
   )
