@@ -3,7 +3,7 @@ import { Item, Label, Icon, Button } from 'semantic-ui-react';
 import { ConnectedAddHashtagForm } from './AddHashtagForm';
 import './Restaurant.css';
 
-const Restaurant = {restaurant} => {
+const Restaurant = ({restaurant}) => {
 
   return (
     <Item key={restaurant.id}>
