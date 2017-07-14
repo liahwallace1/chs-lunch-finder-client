@@ -3,23 +3,8 @@ import { Item, Label, Icon, Button } from 'semantic-ui-react';
 import { ConnectedAddHashtagForm } from './AddHashtagForm';
 import './Restaurant.css';
 
-class Restaurant extends Component {
-  constructor() {
-    super();
-    this.state = {
-      votes: 0
-    }
-  }
+const Restaurant = {restaurant} => {
 
-  handleVotes(e){
-    e.preventDefault();
-    this.setState({
-      votes: this.state.votes + 1
-    })
-  }
-
-render() {
-  const restaurant = this.props.restaurant
   return (
     <Item key={restaurant.id}>
       <Item.Image src={restaurant.image_url} size='small'	/>
@@ -46,12 +31,6 @@ render() {
       </Item.Content>
     </Item>
   )
-  }
 }
-
-// }= ({ restaurant, hashtagOptions, manageHashtagCallback }) => {
-//
-//   )
-// }
 
 export default Restaurant
